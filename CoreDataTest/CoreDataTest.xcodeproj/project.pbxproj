@@ -14,6 +14,12 @@
 		1238BF65280E56BF0014DC05 /* AddDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF64280E56BF0014DC05 /* AddDate.swift */; };
 		1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF66280E56F60014DC05 /* AddDateViewController.swift */; };
 		1275F28428107E6A0034F0BB /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28328107E6A0034F0BB /* UITextView+Additions.swift */; };
+		1275F28B28109A4C0034F0BB /* Assunto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28528109A4C0034F0BB /* Assunto+CoreDataClass.swift */; };
+		1275F28C28109A4C0034F0BB /* Assunto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28628109A4C0034F0BB /* Assunto+CoreDataProperties.swift */; };
+		1275F28D28109A4C0034F0BB /* DataEstudo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28728109A4C0034F0BB /* DataEstudo+CoreDataClass.swift */; };
+		1275F28E28109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28828109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift */; };
+		1275F28F28109A4C0034F0BB /* Topicos+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28928109A4C0034F0BB /* Topicos+CoreDataClass.swift */; };
+		1275F29028109A4C0034F0BB /* Topicos+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28A28109A4C0034F0BB /* Topicos+CoreDataProperties.swift */; };
 		12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D91280AFA4A006DFF35 /* AppDelegate.swift */; };
 		12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D93280AFA4A006DFF35 /* SceneDelegate.swift */; };
 		12996D99280AFA4A006DFF35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12996D97280AFA4A006DFF35 /* Main.storyboard */; };
@@ -39,6 +45,12 @@
 		1238BF64280E56BF0014DC05 /* AddDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDate.swift; sourceTree = "<group>"; };
 		1238BF66280E56F60014DC05 /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
 		1275F28328107E6A0034F0BB /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
+		1275F28528109A4C0034F0BB /* Assunto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assunto+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1275F28628109A4C0034F0BB /* Assunto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assunto+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1275F28728109A4C0034F0BB /* DataEstudo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataEstudo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1275F28828109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataEstudo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1275F28928109A4C0034F0BB /* Topicos+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topicos+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1275F28A28109A4C0034F0BB /* Topicos+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topicos+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		12996D8E280AFA4A006DFF35 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12996D91280AFA4A006DFF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12996D93280AFA4A006DFF35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,9 +115,23 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		1275F29128109AEB0034F0BB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1275F28528109A4C0034F0BB /* Assunto+CoreDataClass.swift */,
+				1275F28628109A4C0034F0BB /* Assunto+CoreDataProperties.swift */,
+				1275F28928109A4C0034F0BB /* Topicos+CoreDataClass.swift */,
+				1275F28A28109A4C0034F0BB /* Topicos+CoreDataProperties.swift */,
+				1275F28728109A4C0034F0BB /* DataEstudo+CoreDataClass.swift */,
+				1275F28828109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		12996D85280AFA4A006DFF35 = {
 			isa = PBXGroup;
 			children = (
+				1275F29128109AEB0034F0BB /* CoreData */,
 				12996D90280AFA4A006DFF35 /* CoreDataTest */,
 				12996D8F280AFA4A006DFF35 /* Products */,
 			);
@@ -273,16 +299,22 @@
 				122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */,
 				122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */,
 				12996D9C280AFA4A006DFF35 /* CoreDataTest.xcdatamodeld in Sources */,
+				1275F28D28109A4C0034F0BB /* DataEstudo+CoreDataClass.swift in Sources */,
 				1275F28428107E6A0034F0BB /* UITextView+Additions.swift in Sources */,
 				1238BF65280E56BF0014DC05 /* AddDate.swift in Sources */,
 				12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */,
 				12996DA9280AFAB8006DFF35 /* ProgressBar.swift in Sources */,
+				1275F28B28109A4C0034F0BB /* Assunto+CoreDataClass.swift in Sources */,
 				1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */,
 				12D5750F280D683900D3BCF4 /* TopicsViewController.swift in Sources */,
+				1275F28F28109A4C0034F0BB /* Topicos+CoreDataClass.swift in Sources */,
 				12D57519280DD28500D3BCF4 /* RadioButtonTableViewCell.swift in Sources */,
 				12D5750D280D644F00D3BCF4 /* SubjectViewController.swift in Sources */,
 				12D57515280DA1D300D3BCF4 /* SavedDateViewController.swift in Sources */,
+				1275F29028109A4C0034F0BB /* Topicos+CoreDataProperties.swift in Sources */,
 				12996DAF280B0131006DFF35 /* SubjectTableViewCell.swift in Sources */,
+				1275F28E28109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift in Sources */,
+				1275F28C28109A4C0034F0BB /* Assunto+CoreDataProperties.swift in Sources */,
 				12D57511280D732E00D3BCF4 /* DatesViewController.swift in Sources */,
 				12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */,
 			);

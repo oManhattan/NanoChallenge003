@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Assunto" representedClassName="Assunto" syncable="YES">
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="topico" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topicos" inverseName="assunto" inverseEntity="Topicos"/>
+    </entity>
+    <entity name="DataEstudo" representedClassName="DataEstudo" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notas" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="topico" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topicos" inverseName="data" inverseEntity="Topicos"/>
+    </entity>
+    <entity name="Topicos" representedClassName="Topicos" syncable="YES">
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="assunto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assunto" inverseName="topico" inverseEntity="Assunto"/>
+        <relationship name="data" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataEstudo" inverseName="topico" inverseEntity="DataEstudo"/>
+    </entity>
+    <elements>
+        <element name="DataEstudo" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Topicos" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="Assunto" positionX="-36" positionY="27" width="128" height="59"/>
+    </elements>
 </model>

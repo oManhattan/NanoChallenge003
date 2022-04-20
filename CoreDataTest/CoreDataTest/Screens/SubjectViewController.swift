@@ -44,7 +44,7 @@ extension SubjectViewController: UITableViewDataSource {
         
         cell.setTitle(title: "Subject")
         cell.setDate(date: "Último estudo: DD/MM/AAAA")
-        cell.setProgress(greenProgress: 0.3, yellowProgress: 0.3, redProgress: 0.3)
+        cell.setProgress(greenProgress: 0, yellowProgress: 0, redProgress: 0)
         
         return cell
     }
