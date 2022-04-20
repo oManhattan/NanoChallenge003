@@ -13,7 +13,7 @@
 		122BE656280CBA6C007C4797 /* DatesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */; };
 		1238BF65280E56BF0014DC05 /* AddDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF64280E56BF0014DC05 /* AddDate.swift */; };
 		1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF66280E56F60014DC05 /* AddDateViewController.swift */; };
-		1238BF6A280EF8720014DC05 /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF69280EF8720014DC05 /* UITextView+Additions.swift */; };
+		1275F28428107E6A0034F0BB /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28328107E6A0034F0BB /* UITextView+Additions.swift */; };
 		12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D91280AFA4A006DFF35 /* AppDelegate.swift */; };
 		12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D93280AFA4A006DFF35 /* SceneDelegate.swift */; };
 		12996D99280AFA4A006DFF35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12996D97280AFA4A006DFF35 /* Main.storyboard */; };
@@ -38,7 +38,7 @@
 		122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatesTableViewCell.xib; sourceTree = "<group>"; };
 		1238BF64280E56BF0014DC05 /* AddDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDate.swift; sourceTree = "<group>"; };
 		1238BF66280E56F60014DC05 /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
-		1238BF69280EF8720014DC05 /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITextView+Additions.swift"; path = "../../../../../Downloads/UITextView+Additions.swift"; sourceTree = "<group>"; };
+		1275F28328107E6A0034F0BB /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		12996D8E280AFA4A006DFF35 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12996D91280AFA4A006DFF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12996D93280AFA4A006DFF35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		1238BF68280EF8490014DC05 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1238BF69280EF8720014DC05 /* UITextView+Additions.swift */,
+				1275F28328107E6A0034F0BB /* UITextView+Additions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -273,6 +273,7 @@
 				122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */,
 				122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */,
 				12996D9C280AFA4A006DFF35 /* CoreDataTest.xcdatamodeld in Sources */,
+				1275F28428107E6A0034F0BB /* UITextView+Additions.swift in Sources */,
 				1238BF65280E56BF0014DC05 /* AddDate.swift in Sources */,
 				12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */,
 				12996DA9280AFAB8006DFF35 /* ProgressBar.swift in Sources */,
@@ -282,7 +283,6 @@
 				12D5750D280D644F00D3BCF4 /* SubjectViewController.swift in Sources */,
 				12D57515280DA1D300D3BCF4 /* SavedDateViewController.swift in Sources */,
 				12996DAF280B0131006DFF35 /* SubjectTableViewCell.swift in Sources */,
-				1238BF6A280EF8720014DC05 /* UITextView+Additions.swift in Sources */,
 				12D57511280D732E00D3BCF4 /* DatesViewController.swift in Sources */,
 				12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */,
 			);
