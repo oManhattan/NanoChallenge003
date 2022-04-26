@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1203A9FD2817914B00DBAB2C /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203A9FC2817914B00DBAB2C /* UITextView+Additions.swift */; };
 		122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */; };
 		122BE64B280C5B42007C4797 /* TopicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */; };
 		122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */; };
 		122BE656280CBA6C007C4797 /* DatesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */; };
 		1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF66280E56F60014DC05 /* AddDateViewController.swift */; };
-		1238BF6A280EF8720014DC05 /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF69280EF8720014DC05 /* UITextView+Additions.swift */; };
 		128087D42811CA2C006CA9F3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128087D32811CA2C006CA9F3 /* RadioButton.swift */; };
 		128087D9281371CA006CA9F3 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */; };
 		12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D91280AFA4A006DFF35 /* AppDelegate.swift */; };
@@ -31,12 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1203A9FC2817914B00DBAB2C /* UITextView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
 		122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsTableViewCell.xib; sourceTree = "<group>"; };
 		122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTableViewCell.swift; sourceTree = "<group>"; };
 		122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatesTableViewCell.xib; sourceTree = "<group>"; };
 		1238BF66280E56F60014DC05 /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
-		1238BF69280EF8720014DC05 /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITextView+Additions.swift"; path = "../../../../../Downloads/UITextView+Additions.swift"; sourceTree = "<group>"; };
 		128087D32811CA2C006CA9F3 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
 		12996D8E280AFA4A006DFF35 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +88,7 @@
 		1238BF68280EF8490014DC05 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1238BF69280EF8720014DC05 /* UITextView+Additions.swift */,
+				1203A9FC2817914B00DBAB2C /* UITextView+Additions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 				12D5750D280D644F00D3BCF4 /* SubjectViewController.swift in Sources */,
 				12D57515280DA1D300D3BCF4 /* SavedDateViewController.swift in Sources */,
 				12996DAF280B0131006DFF35 /* SubjectTableViewCell.swift in Sources */,
-				1238BF6A280EF8720014DC05 /* UITextView+Additions.swift in Sources */,
+				1203A9FD2817914B00DBAB2C /* UITextView+Additions.swift in Sources */,
 				12D57511280D732E00D3BCF4 /* DatesViewController.swift in Sources */,
 				12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */,
 			);
