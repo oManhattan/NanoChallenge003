@@ -62,8 +62,36 @@ class DatesTableViewCell: UITableViewCell {
         return data.text ?? ""
     }
     
-    public func setStatus(status: String) {
-        self.status.image = UIImage(named: status)
+    public func setStatus(statusNumber: Int) {
+        let gray = UIColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1) // Gray
+        let green = UIColor(red: 0.239, green: 0.773, blue: 0.369, alpha: 1) // Green
+        let yellow = UIColor(red: 0.992, green: 0.796, blue: 0.259, alpha: 1) // Yellow
+        let red = UIColor(red: 0.98, green: 0.239, blue: 0.22, alpha: 1) // Red
+        
+        var image = UIImage(systemName: "circle.fill")
+        
+        switch statusNumber {
+        case 1:
+            image = image?.withTintColor(green, renderingMode: .alwaysOriginal)
+            break
+        case 2:
+            image = image?.withTintColor(yellow, renderingMode: .alwaysOriginal)
+            break
+        case 3:
+            image = image?.withTintColor(red, renderingMode: .alwaysOriginal)
+            break
+        default:
+            image = image?.withTintColor(gray, renderingMode: .alwaysOriginal)
+        }
+        
+        self.status.image = image
     }
 
+    public func getStatus() -> UIImage {
+        guard let image = self.status.image else {
+            return UIImage(systemName: "circle.fill")!.withTintColor(UIColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1), renderingMode: .alwaysOriginal)
+        }
+        
+        return image
+    }
 }

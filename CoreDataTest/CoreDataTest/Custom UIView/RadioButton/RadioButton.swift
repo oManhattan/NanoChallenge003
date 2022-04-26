@@ -15,10 +15,6 @@ class RadioButton: UIControl {
     public var selectedImage: UIImage?
     public var unselectedImage: UIImage?
     
-    private var image: UIImage? {
-        return isChecked ? selectedImage ?? UIImage(systemName: "circle.circle.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal) : unselectedImage ?? UIImage(systemName: "circle.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-    }
-    
     public var isChecked: Bool = false {
         didSet {
             statusImage?.image = image
@@ -29,6 +25,10 @@ class RadioButton: UIControl {
                 title?.font = UIFont.systemFont(ofSize: 18)
             }
         }
+    }
+    
+    private var image: UIImage? {
+        return isChecked ? selectedImage ?? UIImage(systemName: "circle.circle.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal) : unselectedImage ?? UIImage(systemName: "circle.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
     }
     
     private func initComplement() {

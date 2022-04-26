@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1203A9FD2817914B00DBAB2C /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203A9FC2817914B00DBAB2C /* UITextView+Additions.swift */; };
+		1203AA0428179D1C00DBAB2C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203A9FE28179D1C00DBAB2C /* Topic+CoreDataClass.swift */; };
+		1203AA0528179D1C00DBAB2C /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203A9FF28179D1C00DBAB2C /* Topic+CoreDataProperties.swift */; };
+		1203AA0628179D1C00DBAB2C /* Subject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0028179D1C00DBAB2C /* Subject+CoreDataClass.swift */; };
+		1203AA0728179D1C00DBAB2C /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0128179D1C00DBAB2C /* Subject+CoreDataProperties.swift */; };
+		1203AA0828179D1C00DBAB2C /* SavedDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0228179D1C00DBAB2C /* SavedDate+CoreDataClass.swift */; };
+		1203AA0928179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0328179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift */; };
 		122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */; };
 		122BE64B280C5B42007C4797 /* TopicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */; };
 		122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */; };
@@ -32,6 +38,12 @@
 
 /* Begin PBXFileReference section */
 		1203A9FC2817914B00DBAB2C /* UITextView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
+		1203A9FE28179D1C00DBAB2C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1203A9FF28179D1C00DBAB2C /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1203AA0028179D1C00DBAB2C /* Subject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1203AA0128179D1C00DBAB2C /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1203AA0228179D1C00DBAB2C /* SavedDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1203AA0328179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
 		122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsTableViewCell.xib; sourceTree = "<group>"; };
 		122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +79,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1203AA0A28179D2300DBAB2C /* CordeDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				1203AA0028179D1C00DBAB2C /* Subject+CoreDataClass.swift */,
+				1203AA0128179D1C00DBAB2C /* Subject+CoreDataProperties.swift */,
+				1203A9FE28179D1C00DBAB2C /* Topic+CoreDataClass.swift */,
+				1203A9FF28179D1C00DBAB2C /* Topic+CoreDataProperties.swift */,
+				1203AA0228179D1C00DBAB2C /* SavedDate+CoreDataClass.swift */,
+				1203AA0328179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift */,
+			);
+			path = CordeDataModel;
+			sourceTree = "<group>";
+		};
 		122BE647280C5B1D007C4797 /* TopicsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +148,7 @@
 			children = (
 				12996D91280AFA4A006DFF35 /* AppDelegate.swift */,
 				12996D93280AFA4A006DFF35 /* SceneDelegate.swift */,
+				1203AA0A28179D2300DBAB2C /* CordeDataModel */,
 				1238BF68280EF8490014DC05 /* Utilities */,
 				12996DAC280AFFE3006DFF35 /* Custom TableViewCell */,
 				12D5751D280E215E00D3BCF4 /* Custom UIView */,
@@ -258,20 +284,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1203AA0628179D1C00DBAB2C /* Subject+CoreDataClass.swift in Sources */,
 				122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */,
 				122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */,
 				12996D9C280AFA4A006DFF35 /* CoreDataTest.xcdatamodeld in Sources */,
 				12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */,
+				1203AA0828179D1C00DBAB2C /* SavedDate+CoreDataClass.swift in Sources */,
+				1203AA0728179D1C00DBAB2C /* Subject+CoreDataProperties.swift in Sources */,
 				12996DA9280AFAB8006DFF35 /* ProgressBar.swift in Sources */,
 				1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */,
 				128087D42811CA2C006CA9F3 /* RadioButton.swift in Sources */,
+				1203AA0428179D1C00DBAB2C /* Topic+CoreDataClass.swift in Sources */,
 				12D5750F280D683900D3BCF4 /* TopicsViewController.swift in Sources */,
 				128087D9281371CA006CA9F3 /* RadioButtonGroup.swift in Sources */,
 				12D5750D280D644F00D3BCF4 /* SubjectViewController.swift in Sources */,
+				1203AA0928179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift in Sources */,
 				12D57515280DA1D300D3BCF4 /* SavedDateViewController.swift in Sources */,
 				12996DAF280B0131006DFF35 /* SubjectTableViewCell.swift in Sources */,
 				1203A9FD2817914B00DBAB2C /* UITextView+Additions.swift in Sources */,
 				12D57511280D732E00D3BCF4 /* DatesViewController.swift in Sources */,
+				1203AA0528179D1C00DBAB2C /* Topic+CoreDataProperties.swift in Sources */,
 				12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

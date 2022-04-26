@@ -18,8 +18,8 @@ class AddDateViewController: UIViewController {
     private weak var datePicker: UIDatePicker?
     private weak var textView: UITextView?
     
-    public var selectedStatus: Int = 3
-    public var selectedDate: Date = Date.now
+    public var selectedStatus: Int = 0
+    public var selectedDate: Date = Date()
     public var notes: String = ""
     
     override func viewDidLoad() {
@@ -53,12 +53,14 @@ class AddDateViewController: UIViewController {
         scrollView.addSubview(datePicker)
         scrollView.addSubview(statusSelector)
         scrollView.addSubview(textView)
+        scrollView.keyboardDismissMode = .interactive
         
         datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.setDate(Date.now, animated: true)
         datePicker.preferredDatePickerStyle = .inline
-        datePicker.maximumDate = Date.now
-        datePicker.locale = Locale(identifier: "pt_BR")
-        datePicker.timeZone = TimeZone(identifier: "America/Sao_Paulo")
+        datePicker.maximumDate = Date()
+        datePicker.locale = Locale.autoupdatingCurrent
+        datePicker.timeZone = TimeZone.autoupdatingCurrent
         datePicker.datePickerMode = .date
         
         statusSelector.translatesAutoresizingMaskIntoConstraints = false
@@ -68,11 +70,11 @@ class AddDateViewController: UIViewController {
         textView.font = UIFont.systemFont(ofSize: 18)
         textView.layer.borderColor = CGColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1)
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+        textView.keyboardDismissMode = .interactive
         if textView.text.isEmpty {
             textView.text = "Anotações"
             textView.textColor = .systemGray
         }
-        textView.addDoneButton(title: "Ok", target: self, selector: #selector(tapDone(sender:)))
         textView.delegate = self
         
         NSLayoutConstraint.activate([
@@ -123,7 +125,7 @@ class AddDateViewController: UIViewController {
     
     @objc private func saveFunc() {
         
-        guard selectedStatus < 3 else {
+        guard selectedStatus != 0 else {
             
             let alertScreen = UIAlertController(title: "Status não selecionado", message: "Selecione um status.", preferredStyle: .alert)
             let okayBtn = UIAlertAction(title: "OK", style: .cancel)
@@ -133,6 +135,14 @@ class AddDateViewController: UIViewController {
             
             return
         }
+        
+        notes = textView?.text ?? ""
+        
+        notes = (notes == "Anotações") ? "" : notes
+        
+        print("Selected date: \(selectedDate)")
+        print("Selected status: \(selectedStatus)")
+        print("Notes: \(notes)")
         
         dismiss(animated: true)
     }
@@ -147,6 +157,7 @@ class AddDateViewController: UIViewController {
     
     @objc private func didSelectStatus(_ sender: RadioButtonGroup) {
         selectedStatus = sender.selectedStatus
+        print(selectedStatus)
     }
     
     @objc private func adjustForKeyboard(notification: Notification) {
@@ -158,8 +169,8 @@ class AddDateViewController: UIViewController {
         if notification.name == UIResponder.keyboardWillHideNotification {
             scrollView?.contentSize = CGSize(width: view.bounds.width, height: view.frame.height + 50)
         } else {
-            scrollView?.contentSize = CGSize(width: view.bounds.width, height: view.bounds.height + keyboardViewEndFrame.height + 44)
-            scrollView?.contentOffset.y = (textView?.frame.maxY)! - keyboardViewEndFrame.height + 44
+            scrollView?.contentSize = CGSize(width: view.bounds.width, height: view.bounds.height + keyboardViewEndFrame.height)
+            scrollView?.contentOffset.y = (textView?.frame.maxY)! - keyboardViewEndFrame.height
         }
 
         textView?.scrollIndicatorInsets = textView!.contentInset

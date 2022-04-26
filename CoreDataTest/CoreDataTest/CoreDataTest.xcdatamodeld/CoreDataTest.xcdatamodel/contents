@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CDSavedDates" representedClassName="CDSavedDates" syncable="YES" codeGenerationType="class"/>
-    <entity name="CDSubjects" representedClassName="CDSubjects" syncable="YES" codeGenerationType="class"/>
-    <entity name="CDTopics" representedClassName="CDTopics" syncable="YES" codeGenerationType="class"/>
+    <entity name="SavedDate" representedClassName="SavedDate" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="savedDate" inverseEntity="Topic"/>
+    </entity>
+    <entity name="Subject" representedClassName="Subject" syncable="YES">
+        <attribute name="greenProgress" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="latestDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="redProgress" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="yellowProgress" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="topic" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Topic" inverseName="subject" inverseEntity="Topic"/>
+    </entity>
+    <entity name="Topic" representedClassName="Topic" syncable="YES">
+        <attribute name="latestSavedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latestSavedStatus" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="savedDate" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="SavedDate" inverseName="topic" inverseEntity="SavedDate"/>
+        <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="topic" inverseEntity="Subject"/>
+    </entity>
     <elements>
-        <element name="CDSavedDates" positionX="-63" positionY="-18" width="128" height="29"/>
-        <element name="CDTopics" positionX="-54" positionY="-9" width="128" height="29"/>
-        <element name="CDSubjects" positionX="-36" positionY="9" width="128" height="29"/>
+        <element name="SavedDate" positionX="-9" positionY="36" width="128" height="89"/>
+        <element name="Topic" positionX="-9" positionY="63" width="128" height="104"/>
+        <element name="Subject" positionX="9" positionY="99" width="128" height="119"/>
     </elements>
 </model>

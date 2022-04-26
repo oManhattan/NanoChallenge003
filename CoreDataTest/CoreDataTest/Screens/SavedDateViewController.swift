@@ -9,8 +9,12 @@ import UIKit
 
 class SavedDateViewController: UIViewController {
 
-    @IBOutlet weak var textView: UITextView!
-    public var imageStatus = UIImageView()
+    private weak var textView: UITextView?
+    private weak var imageStatus: UIImageView?
+    
+    public func setStatus(image: UIImage) {
+        self.imageStatus?.image = image
+    }
     
     struct const {
         static let tamanhoImagemGrande: CGFloat = 40
@@ -23,29 +27,45 @@ class SavedDateViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        imageStatus.removeFromSuperview()
+        imageStatus?.removeFromSuperview()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "DD/MM/AAAA"
+        let textView = UITextView()
+        let imageStatus = UIImageView()
         
         imageStatus.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.addSubview(imageStatus)
-        imageStatus.image = UIImage(named: "GreenStatus.png")
         
+        view.addSubview(textView)
+        
+        textView.translatesAutoresizingMaskIntoConstraints = false
         textView.layer.borderWidth = 1
         textView.layer.borderColor = CGColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1)
+        textView.font = UIFont.systemFont(ofSize: 18)
+        textView.keyboardDismissMode = .interactive
         textView.addDoneButton(title: "Ok", target: self, selector: #selector(tapDone(sender:)))
+        
         textView.delegate = self
         
         NSLayoutConstraint.activate([
             imageStatus.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -const.margemDireita),
             imageStatus.bottomAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: -const.margemBaixaImagemGrande),
             imageStatus.heightAnchor.constraint(equalToConstant: 30),
-            imageStatus.widthAnchor.constraint(equalToConstant: 30)
+            imageStatus.widthAnchor.constraint(equalToConstant: 30),
+            
+            textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            textView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            textView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+        self.textView = textView
+        self.imageStatus = imageStatus
+        
+        setStatus(image: (UIImage(systemName: "circle.fill")?.withTintColor(UIColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1), renderingMode: .alwaysOriginal))!)
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -75,7 +95,7 @@ class SavedDateViewController: UIViewController {
 
         let xTranslation = max(0, sizeDiff - coeff * sizeDiff)
 
-        imageStatus.transform = CGAffineTransform.identity
+        imageStatus?.transform = CGAffineTransform.identity
             .scaledBy(x: scale, y: scale)
             .translatedBy(x: xTranslation, y: yTranslation)
     }
@@ -87,15 +107,17 @@ class SavedDateViewController: UIViewController {
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
 
         if notification.name == UIResponder.keyboardWillHideNotification {
-            textView.contentInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+            textView?.contentInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         } else {
-            textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            textView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
         }
 
-        textView.scrollIndicatorInsets = textView.contentInset
+        guard let contentInset = textView?.contentInset else { return }
+        
+        textView?.scrollIndicatorInsets = contentInset
 
-        let selectedRange = textView.selectedRange
-        textView.scrollRangeToVisible(selectedRange)
+        guard let selectedRange = textView?.selectedRange else { return }
+        textView?.scrollRangeToVisible(selectedRange)
     }
 
     @objc func tapDone(sender: Any) {

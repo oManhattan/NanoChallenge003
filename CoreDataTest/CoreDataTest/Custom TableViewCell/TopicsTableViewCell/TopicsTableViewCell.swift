@@ -37,7 +37,7 @@ class TopicsTableViewCell: UITableViewCell {
         rightArrow.image = UIImage(systemName: "chevron.right")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
         
         status.translatesAutoresizingMaskIntoConstraints = false
-        status.image = UIImage(named: "GrayStatus.png")
+        status.image = UIImage(systemName: "circle.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
         
         NSLayoutConstraint.activate([
             title.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
@@ -80,7 +80,28 @@ class TopicsTableViewCell: UITableViewCell {
         return date.text ?? ""
     }
     
-    public func setStatus(statusName: String) {
-        self.status.image = UIImage(named: statusName)
+    public func setStatus(statusNumber: Int) {
+        let gray = UIColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1) // Gray
+        let green = UIColor(red: 0.239, green: 0.773, blue: 0.369, alpha: 1) // Green
+        let yellow = UIColor(red: 0.992, green: 0.796, blue: 0.259, alpha: 1) // Yellow
+        let red = UIColor(red: 0.98, green: 0.239, blue: 0.22, alpha: 1) // Red
+        
+        var image = UIImage(systemName: "circle.fill")
+        
+        switch statusNumber {
+        case 1:
+            image = image?.withTintColor(green, renderingMode: .alwaysOriginal)
+            break
+        case 2:
+            image = image?.withTintColor(yellow, renderingMode: .alwaysOriginal)
+            break
+        case 3:
+            image = image?.withTintColor(red, renderingMode: .alwaysOriginal)
+            break
+        default:
+            image = image?.withTintColor(gray, renderingMode: .alwaysOriginal)
+        }
+        
+        self.status.image = image
     }
 }

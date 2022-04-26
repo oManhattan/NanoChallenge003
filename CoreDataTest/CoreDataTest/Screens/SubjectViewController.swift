@@ -17,10 +17,23 @@ class SubjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.title = "Física"
         
+        table.keyboardDismissMode = .interactive
         table.delegate = self
         table.dataSource = self
+    }
+    
+    func setupHideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -30,6 +43,13 @@ extension SubjectViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        view.endEditing(true)
+        
+        let topicsView = storyboard?.instantiateViewController(withIdentifier: "TopicsViewController") as! TopicsViewController
+        
+        navigationController?.pushViewController(topicsView, animated: true)
+        
         table.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -44,7 +64,7 @@ extension SubjectViewController: UITableViewDataSource {
         
         cell.setTitle(title: "Subject")
         cell.setDate(date: "Último estudo: DD/MM/AAAA")
-        cell.setProgress(greenProgress: 0.3, yellowProgress: 0.3, redProgress: 0.3)
+        cell.setProgress(greenProgress: 0, yellowProgress: 0, redProgress: 0)
         
         return cell
     }

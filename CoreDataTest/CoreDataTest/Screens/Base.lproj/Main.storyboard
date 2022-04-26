@@ -11,17 +11,17 @@
         <!--Subject View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SubjectViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubjectViewController" id="BYZ-38-t0r" customClass="SubjectViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="H3X-XT-0ga">
-                                <rect key="frame" x="0.0" y="140" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0fL-mi-5NF">
-                                <rect key="frame" x="0.0" y="191" width="414" height="671"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SubjectTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubjectTableViewCell" id="7ao-XJ-cBc" customClass="SubjectTableViewCell" customModule="CoreDataTest" customModuleProvider="target">
@@ -31,9 +31,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="vZ0-w4-0mY" kind="show" id="EHV-hV-C3h"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -63,24 +60,24 @@
         <!--Topics View Controller-->
         <scene sceneID="7x3-jE-bQD">
             <objects>
-                <viewController id="vZ0-w4-0mY" customClass="TopicsViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopicsViewController" id="vZ0-w4-0mY" customClass="TopicsViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t6m-gA-ncj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-cS-7oz">
-                                <rect key="frame" x="0.0" y="140" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVn-S0-SBc" customClass="ProgressBar" customModule="CoreDataTest" customModuleProvider="target">
-                                <rect key="frame" x="20" y="211" width="374" height="5"/>
+                                <rect key="frame" x="20" y="115" width="374" height="5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="e8G-lV-9wW"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iM5-EJ-I2k">
-                                <rect key="frame" x="0.0" y="236" width="414" height="626"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopicsTableViewCell" id="ucI-0p-D3G" customClass="TopicsTableViewCell" customModule="CoreDataTest" customModuleProvider="target">
@@ -90,9 +87,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="b0e-lJ-S4l" kind="show" id="yEs-c8-Vud"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -132,7 +126,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mfi-qr-f99">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DatesTableViewCell" id="v4m-N3-FFP" customClass="DatesTableViewCell" customModule="CoreDataTest" customModuleProvider="target">
@@ -142,9 +136,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="6Rz-IY-lg6" kind="show" id="EHq-B8-IXX"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -192,44 +183,26 @@
         <!--Saved Date View Controller-->
         <scene sceneID="fnl-xQ-9lE">
             <objects>
-                <viewController id="6Rz-IY-lg6" customClass="SavedDateViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavedDateViewController" id="6Rz-IY-lg6" customClass="SavedDateViewController" customModule="CoreDataTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjv-4Q-eNG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Anotações" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-tu-YOW">
-                                <rect key="frame" x="-1" y="140" width="414" height="722"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="IC5-CS-kSB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="IC5-CS-kSB" firstAttribute="bottom" secondItem="jDj-tu-YOW" secondAttribute="bottom" id="9Hh-Yx-a8r"/>
-                            <constraint firstItem="jDj-tu-YOW" firstAttribute="trailing" secondItem="IC5-CS-kSB" secondAttribute="trailing" constant="-1" id="CR5-sL-4iA"/>
-                            <constraint firstItem="jDj-tu-YOW" firstAttribute="leading" secondItem="IC5-CS-kSB" secondAttribute="leading" constant="-1" id="LJN-D4-oqy"/>
-                            <constraint firstItem="jDj-tu-YOW" firstAttribute="top" secondItem="IC5-CS-kSB" secondAttribute="top" id="ZQg-X0-WMs"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="D3y-Mw-iOd"/>
-                    <connections>
-                        <outlet property="textView" destination="jDj-tu-YOW" id="NXZ-Qv-IsY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnP-m7-T2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4196" y="40"/>
+            <point key="canvasLocation" x="4161" y="40"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aRr-B9-R8S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zw9-aK-7MF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="kRN-aQ-2MJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kRN-aQ-2MJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -243,9 +216,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

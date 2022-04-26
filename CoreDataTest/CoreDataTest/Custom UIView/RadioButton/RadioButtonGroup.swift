@@ -38,21 +38,21 @@ class RadioButtonGroup: UIControl {
         greenStatus.selectedImage = selectedImage?.withTintColor(greenColor, renderingMode: .alwaysOriginal)
         greenStatus.statusImage?.image = greenStatus.unselectedImage
         greenStatus.title?.text = "Entendi"
-        greenStatus.tag = 0
+        greenStatus.tag = 1
         
         yellowStatus.translatesAutoresizingMaskIntoConstraints = false
         yellowStatus.unselectedImage = unselectedImage?.withTintColor(yellowColor, renderingMode: .alwaysOriginal)
         yellowStatus.selectedImage = selectedImage?.withTintColor(yellowColor, renderingMode: .alwaysOriginal)
         yellowStatus.statusImage?.image = yellowStatus.unselectedImage
         yellowStatus.title?.text = "Estudar mais"
-        yellowStatus.tag = 1
+        yellowStatus.tag = 2
         
         redStatus.translatesAutoresizingMaskIntoConstraints = false
         redStatus.unselectedImage = unselectedImage?.withTintColor(redColor, renderingMode: .alwaysOriginal)
         redStatus.selectedImage = selectedImage?.withTintColor(redColor, renderingMode: .alwaysOriginal)
         redStatus.statusImage?.image = redStatus.unselectedImage
         redStatus.title?.text = "Não entendi"
-        redStatus.tag = 2
+        redStatus.tag = 3
         
         NSLayoutConstraint.activate([
             redStatus.topAnchor.constraint(equalTo: topAnchor),
@@ -84,13 +84,13 @@ class RadioButtonGroup: UIControl {
     
     @objc private func didSelectStatus(_ sender: RadioButton) {
         
-        for i in options {
-            if i.tag == sender.tag {
-                i.isChecked = true
+        for botao in options {
+            if botao.tag == sender.tag {
+                botao.isChecked = true
                 continue
             }
             
-            i.isChecked = false
+            botao.isChecked = false
         }
         
         selectedStatus = sender.tag

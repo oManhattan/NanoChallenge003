@@ -19,9 +19,9 @@ class DatesViewController: UIViewController {
         
         self.title = "Nome tópico"
         
+        self.table.contentInsetAdjustmentBehavior = .never
         table.delegate = self
         table.dataSource = self
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func showAddDate() {
@@ -34,6 +34,14 @@ class DatesViewController: UIViewController {
 
 extension DatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let savedNotes = storyboard?.instantiateViewController(withIdentifier: "SavedDateViewController") as! SavedDateViewController
+        let cell = table.cellForRow(at: indexPath) as! DatesTableViewCell
+        
+        savedNotes.setStatus(image: cell.getStatus())
+        savedNotes.title = cell.getData()
+        
+        navigationController?.pushViewController(savedNotes, animated: true)
+        
         table.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -47,7 +55,7 @@ extension DatesViewController: UITableViewDataSource {
         let cell = table.dequeueReusableCell(withIdentifier: customeCell.identifier, for: indexPath) as! DatesTableViewCell
         
         cell.setData(data: "DD/MM/AAAA")
-        cell.setStatus(status: "GreenStatus.png")
+        cell.setStatus(statusNumber: 1)
         
         return cell
     }

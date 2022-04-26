@@ -32,6 +32,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    // MARK: - Core Data Info creation
+    
+    private func saveContext(context: NSManagedObjectContext) {
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func createSubject(with name: String) {
+        
+        let context = persistentContainer.viewContext
+        let newSubject = Subject(context: context)
+        newSubject.setValue(name, forKey: "name")
+        
+        saveContext(context: context)
+    }
+    
+    private func createTopic(with name: String, belongsTo subject: Subject) {
+        
+        let context = persistentContainer.viewContext
+        let newTopic = Topic(context: context)
+        newTopic.setValue(name, forKey: "name")
+        
+        subject.addToTopic(newTopic)
+        
+        saveContext(context: context)
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
