@@ -11,15 +11,10 @@
 		122BE64B280C5B42007C4797 /* TopicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */; };
 		122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */; };
 		122BE656280CBA6C007C4797 /* DatesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */; };
-		1238BF65280E56BF0014DC05 /* AddDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF64280E56BF0014DC05 /* AddDate.swift */; };
 		1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF66280E56F60014DC05 /* AddDateViewController.swift */; };
-		1275F28428107E6A0034F0BB /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28328107E6A0034F0BB /* UITextView+Additions.swift */; };
-		1275F28B28109A4C0034F0BB /* Assunto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28528109A4C0034F0BB /* Assunto+CoreDataClass.swift */; };
-		1275F28C28109A4C0034F0BB /* Assunto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28628109A4C0034F0BB /* Assunto+CoreDataProperties.swift */; };
-		1275F28D28109A4C0034F0BB /* DataEstudo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28728109A4C0034F0BB /* DataEstudo+CoreDataClass.swift */; };
-		1275F28E28109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28828109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift */; };
-		1275F28F28109A4C0034F0BB /* Topicos+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28928109A4C0034F0BB /* Topicos+CoreDataClass.swift */; };
-		1275F29028109A4C0034F0BB /* Topicos+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1275F28A28109A4C0034F0BB /* Topicos+CoreDataProperties.swift */; };
+		1238BF6A280EF8720014DC05 /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF69280EF8720014DC05 /* UITextView+Additions.swift */; };
+		128087D42811CA2C006CA9F3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128087D32811CA2C006CA9F3 /* RadioButton.swift */; };
+		128087D9281371CA006CA9F3 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */; };
 		12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D91280AFA4A006DFF35 /* AppDelegate.swift */; };
 		12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D93280AFA4A006DFF35 /* SceneDelegate.swift */; };
 		12996D99280AFA4A006DFF35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12996D97280AFA4A006DFF35 /* Main.storyboard */; };
@@ -33,8 +28,6 @@
 		12D5750F280D683900D3BCF4 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5750E280D683900D3BCF4 /* TopicsViewController.swift */; };
 		12D57511280D732E00D3BCF4 /* DatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D57510280D732E00D3BCF4 /* DatesViewController.swift */; };
 		12D57515280DA1D300D3BCF4 /* SavedDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D57514280DA1D300D3BCF4 /* SavedDateViewController.swift */; };
-		12D57519280DD28500D3BCF4 /* RadioButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D57517280DD28500D3BCF4 /* RadioButtonTableViewCell.swift */; };
-		12D5751A280DD28500D3BCF4 /* RadioButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D57518280DD28500D3BCF4 /* RadioButtonTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,15 +35,10 @@
 		122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsTableViewCell.xib; sourceTree = "<group>"; };
 		122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTableViewCell.swift; sourceTree = "<group>"; };
 		122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatesTableViewCell.xib; sourceTree = "<group>"; };
-		1238BF64280E56BF0014DC05 /* AddDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDate.swift; sourceTree = "<group>"; };
 		1238BF66280E56F60014DC05 /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
-		1275F28328107E6A0034F0BB /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
-		1275F28528109A4C0034F0BB /* Assunto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assunto+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1275F28628109A4C0034F0BB /* Assunto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assunto+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		1275F28728109A4C0034F0BB /* DataEstudo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataEstudo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1275F28828109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataEstudo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		1275F28928109A4C0034F0BB /* Topicos+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topicos+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1275F28A28109A4C0034F0BB /* Topicos+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topicos+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1238BF69280EF8720014DC05 /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITextView+Additions.swift"; path = "../../../../../Downloads/UITextView+Additions.swift"; sourceTree = "<group>"; };
+		128087D32811CA2C006CA9F3 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
 		12996D8E280AFA4A006DFF35 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12996D91280AFA4A006DFF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12996D93280AFA4A006DFF35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +54,6 @@
 		12D5750E280D683900D3BCF4 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		12D57510280D732E00D3BCF4 /* DatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewController.swift; sourceTree = "<group>"; };
 		12D57514280DA1D300D3BCF4 /* SavedDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDateViewController.swift; sourceTree = "<group>"; };
-		12D57517280DD28500D3BCF4 /* RadioButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonTableViewCell.swift; sourceTree = "<group>"; };
-		12D57518280DD28500D3BCF4 /* RadioButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioButtonTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,39 +85,26 @@
 			path = DateTableViewCells;
 			sourceTree = "<group>";
 		};
-		1238BF63280E56B40014DC05 /* AddDate */ = {
-			isa = PBXGroup;
-			children = (
-				1238BF64280E56BF0014DC05 /* AddDate.swift */,
-			);
-			path = AddDate;
-			sourceTree = "<group>";
-		};
 		1238BF68280EF8490014DC05 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1275F28328107E6A0034F0BB /* UITextView+Additions.swift */,
+				1238BF69280EF8720014DC05 /* UITextView+Additions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		1275F29128109AEB0034F0BB /* CoreData */ = {
+		128087D52811CA3D006CA9F3 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
-				1275F28528109A4C0034F0BB /* Assunto+CoreDataClass.swift */,
-				1275F28628109A4C0034F0BB /* Assunto+CoreDataProperties.swift */,
-				1275F28928109A4C0034F0BB /* Topicos+CoreDataClass.swift */,
-				1275F28A28109A4C0034F0BB /* Topicos+CoreDataProperties.swift */,
-				1275F28728109A4C0034F0BB /* DataEstudo+CoreDataClass.swift */,
-				1275F28828109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift */,
+				128087D32811CA2C006CA9F3 /* RadioButton.swift */,
+				128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */,
 			);
-			path = CoreData;
+			path = RadioButton;
 			sourceTree = "<group>";
 		};
 		12996D85280AFA4A006DFF35 = {
 			isa = PBXGroup;
 			children = (
-				1275F29128109AEB0034F0BB /* CoreData */,
 				12996D90280AFA4A006DFF35 /* CoreDataTest */,
 				12996D8F280AFA4A006DFF35 /* Products */,
 			);
@@ -186,7 +159,6 @@
 		12996DAC280AFFE3006DFF35 /* Custom TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				12D57516280DD25F00D3BCF4 /* RadioButtonTableViewCell */,
 				122BE650280C921F007C4797 /* DateTableViewCells */,
 				122BE647280C5B1D007C4797 /* TopicsTableViewCell */,
 				12996DB1280B0141006DFF35 /* SubjectTableViewCell */,
@@ -203,19 +175,10 @@
 			path = SubjectTableViewCell;
 			sourceTree = "<group>";
 		};
-		12D57516280DD25F00D3BCF4 /* RadioButtonTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				12D57517280DD28500D3BCF4 /* RadioButtonTableViewCell.swift */,
-				12D57518280DD28500D3BCF4 /* RadioButtonTableViewCell.xib */,
-			);
-			path = RadioButtonTableViewCell;
-			sourceTree = "<group>";
-		};
 		12D5751D280E215E00D3BCF4 /* Custom UIView */ = {
 			isa = PBXGroup;
 			children = (
-				1238BF63280E56B40014DC05 /* AddDate */,
+				128087D52811CA3D006CA9F3 /* RadioButton */,
 				12996DAA280AFAC4006DFF35 /* ProgressBar */,
 			);
 			path = "Custom UIView";
@@ -279,7 +242,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D5751A280DD28500D3BCF4 /* RadioButtonTableViewCell.xib in Resources */,
 				12996DB0280B0131006DFF35 /* SubjectTableViewCell.xib in Resources */,
 				12996DA1280AFA4C006DFF35 /* LaunchScreen.storyboard in Resources */,
 				122BE64B280C5B42007C4797 /* TopicsTableViewCell.xib in Resources */,
@@ -299,22 +261,16 @@
 				122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */,
 				122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */,
 				12996D9C280AFA4A006DFF35 /* CoreDataTest.xcdatamodeld in Sources */,
-				1275F28D28109A4C0034F0BB /* DataEstudo+CoreDataClass.swift in Sources */,
-				1275F28428107E6A0034F0BB /* UITextView+Additions.swift in Sources */,
-				1238BF65280E56BF0014DC05 /* AddDate.swift in Sources */,
 				12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */,
 				12996DA9280AFAB8006DFF35 /* ProgressBar.swift in Sources */,
-				1275F28B28109A4C0034F0BB /* Assunto+CoreDataClass.swift in Sources */,
 				1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */,
+				128087D42811CA2C006CA9F3 /* RadioButton.swift in Sources */,
 				12D5750F280D683900D3BCF4 /* TopicsViewController.swift in Sources */,
-				1275F28F28109A4C0034F0BB /* Topicos+CoreDataClass.swift in Sources */,
-				12D57519280DD28500D3BCF4 /* RadioButtonTableViewCell.swift in Sources */,
+				128087D9281371CA006CA9F3 /* RadioButtonGroup.swift in Sources */,
 				12D5750D280D644F00D3BCF4 /* SubjectViewController.swift in Sources */,
 				12D57515280DA1D300D3BCF4 /* SavedDateViewController.swift in Sources */,
-				1275F29028109A4C0034F0BB /* Topicos+CoreDataProperties.swift in Sources */,
 				12996DAF280B0131006DFF35 /* SubjectTableViewCell.swift in Sources */,
-				1275F28E28109A4C0034F0BB /* DataEstudo+CoreDataProperties.swift in Sources */,
-				1275F28C28109A4C0034F0BB /* Assunto+CoreDataProperties.swift in Sources */,
+				1238BF6A280EF8720014DC05 /* UITextView+Additions.swift in Sources */,
 				12D57511280D732E00D3BCF4 /* DatesViewController.swift in Sources */,
 				12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */,
 			);
