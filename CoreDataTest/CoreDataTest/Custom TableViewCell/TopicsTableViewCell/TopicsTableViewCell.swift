@@ -54,6 +54,9 @@ class TopicsTableViewCell: UITableViewCell {
         date.textColor = .systemGray
         let dateTop = date.topAnchor.constraint(equalTo: self.centerYAnchor, constant: 2)
         let dateCentered = date.centerYAnchor.constraint(equalTo: centerYAnchor)
+        date.adjustsFontSizeToFitWidth = true
+        date.numberOfLines = 2
+        date.lineBreakMode = .byTruncatingTail
         
         rightArrow.translatesAutoresizingMaskIntoConstraints = false
         rightArrow.image = UIImage(systemName: "chevron.right")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
@@ -68,6 +71,7 @@ class TopicsTableViewCell: UITableViewCell {
             
             dateTop,
             date.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            date.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
             
             rightArrow.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
             rightArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor),
