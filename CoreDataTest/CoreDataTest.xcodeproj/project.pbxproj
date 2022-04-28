@@ -15,11 +15,9 @@
 		1203AA0828179D1C00DBAB2C /* SavedDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0228179D1C00DBAB2C /* SavedDate+CoreDataClass.swift */; };
 		1203AA0928179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0328179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift */; };
 		122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */; };
-		122BE64B280C5B42007C4797 /* TopicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */; };
 		122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */; };
 		122BE656280CBA6C007C4797 /* DatesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */; };
 		1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF66280E56F60014DC05 /* AddDateViewController.swift */; };
-		128087D42811CA2C006CA9F3 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128087D32811CA2C006CA9F3 /* RadioButton.swift */; };
 		128087D9281371CA006CA9F3 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */; };
 		12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D91280AFA4A006DFF35 /* AppDelegate.swift */; };
 		12996D94280AFA4A006DFF35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D93280AFA4A006DFF35 /* SceneDelegate.swift */; };
@@ -29,7 +27,6 @@
 		12996DA1280AFA4C006DFF35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12996D9F280AFA4C006DFF35 /* LaunchScreen.storyboard */; };
 		12996DA9280AFAB8006DFF35 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996DA8280AFAB8006DFF35 /* ProgressBar.swift */; };
 		12996DAF280B0131006DFF35 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996DAD280B0131006DFF35 /* SubjectTableViewCell.swift */; };
-		12996DB0280B0131006DFF35 /* SubjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12996DAE280B0131006DFF35 /* SubjectTableViewCell.xib */; };
 		12D5750D280D644F00D3BCF4 /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5750C280D644F00D3BCF4 /* SubjectViewController.swift */; };
 		12D5750F280D683900D3BCF4 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5750E280D683900D3BCF4 /* TopicsViewController.swift */; };
 		12D57511280D732E00D3BCF4 /* DatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D57510280D732E00D3BCF4 /* DatesViewController.swift */; };
@@ -45,11 +42,9 @@
 		1203AA0228179D1C00DBAB2C /* SavedDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1203AA0328179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
-		122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsTableViewCell.xib; sourceTree = "<group>"; };
 		122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTableViewCell.swift; sourceTree = "<group>"; };
 		122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatesTableViewCell.xib; sourceTree = "<group>"; };
 		1238BF66280E56F60014DC05 /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
-		128087D32811CA2C006CA9F3 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
 		12996D8E280AFA4A006DFF35 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12996D91280AFA4A006DFF35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +56,6 @@
 		12996DA2280AFA4C006DFF35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12996DA8280AFAB8006DFF35 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		12996DAD280B0131006DFF35 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
-		12996DAE280B0131006DFF35 /* SubjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectTableViewCell.xib; sourceTree = "<group>"; };
 		12D5750C280D644F00D3BCF4 /* SubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
 		12D5750E280D683900D3BCF4 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		12D57510280D732E00D3BCF4 /* DatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */,
-				122BE649280C5B42007C4797 /* TopicsTableViewCell.xib */,
 			);
 			path = TopicsTableViewCell;
 			sourceTree = "<group>";
@@ -121,7 +114,6 @@
 		128087D52811CA3D006CA9F3 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
-				128087D32811CA2C006CA9F3 /* RadioButton.swift */,
 				128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */,
 			);
 			path = RadioButton;
@@ -196,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				12996DAD280B0131006DFF35 /* SubjectTableViewCell.swift */,
-				12996DAE280B0131006DFF35 /* SubjectTableViewCell.xib */,
 			);
 			path = SubjectTableViewCell;
 			sourceTree = "<group>";
@@ -268,9 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12996DB0280B0131006DFF35 /* SubjectTableViewCell.xib in Resources */,
 				12996DA1280AFA4C006DFF35 /* LaunchScreen.storyboard in Resources */,
-				122BE64B280C5B42007C4797 /* TopicsTableViewCell.xib in Resources */,
 				122BE656280CBA6C007C4797 /* DatesTableViewCell.xib in Resources */,
 				12996D9E280AFA4C006DFF35 /* Assets.xcassets in Resources */,
 				12996D99280AFA4A006DFF35 /* Main.storyboard in Resources */,
@@ -293,7 +282,6 @@
 				1203AA0728179D1C00DBAB2C /* Subject+CoreDataProperties.swift in Sources */,
 				12996DA9280AFAB8006DFF35 /* ProgressBar.swift in Sources */,
 				1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */,
-				128087D42811CA2C006CA9F3 /* RadioButton.swift in Sources */,
 				1203AA0428179D1C00DBAB2C /* Topic+CoreDataClass.swift in Sources */,
 				12D5750F280D683900D3BCF4 /* TopicsViewController.swift in Sources */,
 				128087D9281371CA006CA9F3 /* RadioButtonGroup.swift in Sources */,

@@ -19,6 +19,10 @@ class DatesTableViewCell: UITableViewCell {
         return UINib(nibName: identifier, bundle: nil)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -54,11 +58,11 @@ class DatesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    public func setData(data: String) {
-        self.data.text = data
+    public func setDate(date: String) {
+        self.data.text = date
     }
     
-    public func getData() -> String {
+    public func getDate() -> String {
         return data.text ?? ""
     }
     

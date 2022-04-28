@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CreateNewDate {
+    func didTapSave(date: Date, status: Int, notes: String)
+}
+
 class AddDateViewController: UIViewController {
     
     private weak var scrollView: UIScrollView?
@@ -17,6 +21,10 @@ class AddDateViewController: UIViewController {
     private weak var statusSelector: RadioButtonGroup?
     private weak var datePicker: UIDatePicker?
     private weak var textView: UITextView?
+    
+    public var createNewDateDelegate: CreateNewDate!
+    
+    public var selectedTopic: Topic?
     
     public var selectedStatus: Int = 0
     public var selectedDate: Date = Date()
@@ -137,13 +145,10 @@ class AddDateViewController: UIViewController {
         }
         
         notes = textView?.text ?? ""
-        
         notes = (notes == "Anotações") ? "" : notes
-        
-        print("Selected date: \(selectedDate)")
-        print("Selected status: \(selectedStatus)")
-        print("Notes: \(notes)")
-        
+
+        createNewDateDelegate.didTapSave(date: selectedDate, status: selectedStatus, notes: notes)
+
         dismiss(animated: true)
     }
     
@@ -157,7 +162,7 @@ class AddDateViewController: UIViewController {
     
     @objc private func didSelectStatus(_ sender: RadioButtonGroup) {
         selectedStatus = sender.selectedStatus
-        print(selectedStatus)
+//        print(selectedStatus)
     }
     
     @objc private func adjustForKeyboard(notification: Notification) {

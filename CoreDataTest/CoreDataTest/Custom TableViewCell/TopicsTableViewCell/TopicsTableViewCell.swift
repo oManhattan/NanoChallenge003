@@ -9,19 +9,36 @@ import UIKit
 
 class TopicsTableViewCell: UITableViewCell {
 
-    private var title = UILabel()
-    private var date = UILabel()
-    private var status = UIImageView()
-    private var rightArrow = UIImageView()
+    public var title = UILabel()
+    public var date = UILabel()
+    public var status = UIImageView()
+    public var rightArrow = UIImageView()
     
-    public var identifier = "TopicsTableViewCell"
+    private var dateTop: NSLayoutConstraint?
+    private var dateCentered: NSLayoutConstraint?
     
-    public func nib() -> UINib {
-        return UINib(nibName: "TopicsTableViewCell", bundle: nil)
+    public var dateIsCentered: Bool = false {
+        didSet {
+            if dateIsCentered {
+                dateTop?.isActive = false
+                dateCentered?.isActive = true
+            } else {
+                dateCentered?.isActive = false
+                dateTop?.isActive = true
+            }
+        }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.date.textColor = .systemGray
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    private func initComplement() {
+        let title = UILabel()
+        let date = UILabel()
+        let status = UIImageView()
+        let rightArrow = UIImageView()
         
         self.addSubview(title)
         self.addSubview(date)
@@ -29,9 +46,14 @@ class TopicsTableViewCell: UITableViewCell {
         self.addSubview(rightArrow)
         
         title.translatesAutoresizingMaskIntoConstraints = false
+        title.adjustsFontSizeToFitWidth = true
+        title.numberOfLines = 2
+        title.lineBreakMode = .byTruncatingTail
         
         date.translatesAutoresizingMaskIntoConstraints = false
         date.textColor = .systemGray
+        let dateTop = date.topAnchor.constraint(equalTo: self.centerYAnchor, constant: 2)
+        let dateCentered = date.centerYAnchor.constraint(equalTo: centerYAnchor)
         
         rightArrow.translatesAutoresizingMaskIntoConstraints = false
         rightArrow.image = UIImage(systemName: "chevron.right")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
@@ -42,42 +64,37 @@ class TopicsTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             title.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             title.bottomAnchor.constraint(equalTo: self.centerYAnchor, constant: 2),
+            title.rightAnchor.constraint(equalTo: status.leftAnchor, constant: -10),
             
-            date.topAnchor.constraint(equalTo: self.centerYAnchor, constant: 2),
+            dateTop,
             date.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             
             rightArrow.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
             rightArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            rightArrow.widthAnchor.constraint(equalToConstant: 15),
-//            rightArrow.heightAnchor.constraint(equalToConstant: 15),
             
             status.rightAnchor.constraint(equalTo: rightArrow.leftAnchor, constant: -10),
             status.widthAnchor.constraint(equalToConstant: 20),
             status.heightAnchor.constraint(equalToConstant: 20),
             status.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    public func setTitle(title: String) {
-        self.title.text = title
+        
+        self.dateTop = dateTop
+        self.dateCentered = dateCentered
+        
+        self.title = title
+        self.date = date
+        self.status = status
+        self.rightArrow = rightArrow
     }
     
-    public func getTitle() -> String {
-        return title.text ?? ""
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        initComplement()
     }
     
-    public func setDate(date: String) {
-        self.date.text = date
-    }
-    
-    public func getDate() -> String {
-        return date.text ?? ""
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initComplement()
     }
     
     public func setStatus(statusNumber: Int) {

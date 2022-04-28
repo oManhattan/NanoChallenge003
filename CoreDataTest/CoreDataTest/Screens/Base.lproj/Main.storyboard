@@ -23,16 +23,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0fL-mi-5NF">
                                 <rect key="frame" x="0.0" y="139" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SubjectTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubjectTableViewCell" id="7ao-XJ-cBc" customClass="SubjectTableViewCell" customModule="CoreDataTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7ao-XJ-cBc" id="Zfb-QW-GjS">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,29 +69,20 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iM5-EJ-I2k">
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopicsTableViewCell" id="ucI-0p-D3G" customClass="TopicsTableViewCell" customModule="CoreDataTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ucI-0p-D3G" id="CkK-Cw-ML5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YWi-fD-Khb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YWi-fD-Khb" firstAttribute="trailing" secondItem="IVn-S0-SBc" secondAttribute="trailing" constant="20" id="6rU-II-U77"/>
+                            <constraint firstItem="iM5-EJ-I2k" firstAttribute="top" secondItem="IVn-S0-SBc" secondAttribute="bottom" constant="20" id="7Ed-BK-kqQ"/>
                             <constraint firstItem="YWi-fD-Khb" firstAttribute="bottom" secondItem="iM5-EJ-I2k" secondAttribute="bottom" id="9l7-xH-SID"/>
                             <constraint firstItem="Apr-cS-7oz" firstAttribute="top" secondItem="YWi-fD-Khb" secondAttribute="top" id="F0f-d7-pwU"/>
+                            <constraint firstItem="IVn-S0-SBc" firstAttribute="top" secondItem="Apr-cS-7oz" secondAttribute="bottom" constant="20" id="Il4-zK-9mE"/>
                             <constraint firstItem="Apr-cS-7oz" firstAttribute="leading" secondItem="YWi-fD-Khb" secondAttribute="leading" id="K0X-dl-EFb"/>
+                            <constraint firstItem="IVn-S0-SBc" firstAttribute="centerX" secondItem="t6m-gA-ncj" secondAttribute="centerX" id="M1K-kn-ArW"/>
                             <constraint firstItem="IVn-S0-SBc" firstAttribute="leading" secondItem="YWi-fD-Khb" secondAttribute="leading" constant="20" id="Npz-lR-053"/>
                             <constraint firstItem="Apr-cS-7oz" firstAttribute="trailing" secondItem="YWi-fD-Khb" secondAttribute="trailing" id="Ry1-dY-bar"/>
-                            <constraint firstItem="iM5-EJ-I2k" firstAttribute="top" secondItem="IVn-S0-SBc" secondAttribute="bottom" constant="20" id="eiI-J7-ike"/>
-                            <constraint firstItem="IVn-S0-SBc" firstAttribute="top" secondItem="Apr-cS-7oz" secondAttribute="bottom" constant="20" id="hHB-bi-sRj"/>
                             <constraint firstItem="YWi-fD-Khb" firstAttribute="trailing" secondItem="iM5-EJ-I2k" secondAttribute="trailing" id="mv3-HP-JE0"/>
                             <constraint firstItem="iM5-EJ-I2k" firstAttribute="leading" secondItem="YWi-fD-Khb" secondAttribute="leading" id="qsU-NB-4I8"/>
                         </constraints>

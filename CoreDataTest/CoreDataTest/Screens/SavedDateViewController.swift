@@ -12,8 +12,26 @@ class SavedDateViewController: UIViewController {
     private weak var textView: UITextView?
     private weak var imageStatus: UIImageView?
     
-    public func setStatus(image: UIImage) {
-        self.imageStatus?.image = image
+    public var selectedDate: SavedDate?
+    
+    public func setStatus(statusNumber: Int) -> UIImage{
+        let gray = UIColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1) // Gray
+        let green = UIColor(red: 0.239, green: 0.773, blue: 0.369, alpha: 1) // Green
+        let yellow = UIColor(red: 0.992, green: 0.796, blue: 0.259, alpha: 1) // Yellow
+        let red = UIColor(red: 0.98, green: 0.239, blue: 0.22, alpha: 1) // Red
+        
+        let image = UIImage(systemName: "circle.fill")
+        
+        switch statusNumber {
+        case 1:
+            return (image?.withTintColor(green, renderingMode: .alwaysOriginal))!
+        case 2:
+            return (image?.withTintColor(yellow, renderingMode: .alwaysOriginal))!
+        case 3:
+            return (image?.withTintColor(red, renderingMode: .alwaysOriginal))!
+        default:
+            return (image?.withTintColor(gray, renderingMode: .alwaysOriginal))!
+        }
     }
     
     struct const {
@@ -33,21 +51,28 @@ class SavedDateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.locale = Locale(identifier: "pt_BR")
+        self.title = formatter.string(from: selectedDate?.date ?? Date.distantPast)
+        
         let textView = UITextView()
         let imageStatus = UIImageView()
         
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+        
         imageStatus.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.addSubview(imageStatus)
+        imageStatus.image = setStatus(statusNumber: Int(selectedDate?.status ?? 0))
         
         view.addSubview(textView)
-        
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.layer.borderWidth = 1
         textView.layer.borderColor = CGColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1)
         textView.font = UIFont.systemFont(ofSize: 18)
         textView.keyboardDismissMode = .interactive
         textView.addDoneButton(title: "Ok", target: self, selector: #selector(tapDone(sender:)))
-        
+        textView.text = selectedDate?.notes ?? ""
         textView.delegate = self
         
         NSLayoutConstraint.activate([
@@ -64,8 +89,6 @@ class SavedDateViewController: UIViewController {
         
         self.textView = textView
         self.imageStatus = imageStatus
-        
-        setStatus(image: (UIImage(systemName: "circle.fill")?.withTintColor(UIColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1), renderingMode: .alwaysOriginal))!)
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)

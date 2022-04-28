@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if isNewUser() {
+            let context = persistentContainer.newBackgroundContext()
+            populateSubject(in: context)
+            populateTopics(in: context)
+            setIsNotNewUser()
+        }
+        
         return true
     }
 
@@ -34,6 +42,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Info creation
     
+    private func isNewUser() -> Bool {
+        return !UserDefaults.standard.bool(forKey: "isNewUser")
+    }
+    
+    private func setIsNotNewUser() {
+        UserDefaults.standard.set(true, forKey: "isNewUser")
+    }
+    
+    private func deleteAll() {
+        let context = persistentContainer.newBackgroundContext()
+        
+        let subjectList = fetchSubjects(in: context)
+        
+        for subject in subjectList {
+            let topicList = subject.topic
+            
+            for topic in topicList! {
+                context.delete(topic)
+                subject.removeFromTopic(topic)
+            }
+        }
+        
+        for subject in subjectList {
+            context.delete(subject)
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+    
     private func saveContext(context: NSManagedObjectContext) {
         do {
             try context.save()
@@ -42,24 +83,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func createSubject(with name: String) {
-        
-        let context = persistentContainer.viewContext
+    private func createSubject(with name: String, in context: NSManagedObjectContext) {
         let newSubject = Subject(context: context)
         newSubject.setValue(name, forKey: "name")
         
         saveContext(context: context)
     }
     
-    private func createTopic(with name: String, belongsTo subject: Subject) {
-        
-        let context = persistentContainer.viewContext
+    private func createTopic(with name: String, belongsTo subject: Subject, in context: NSManagedObjectContext) {
         let newTopic = Topic(context: context)
         newTopic.setValue(name, forKey: "name")
         
         subject.addToTopic(newTopic)
         
         saveContext(context: context)
+    }
+    
+    private func fetchSubjects(in context: NSManagedObjectContext) -> [Subject] {
+        let fetchRequest = NSFetchRequest<Subject>(entityName: "Subject")
+        var subjectList: [Subject] = []
+        
+        do {
+            subjectList = try context.fetch(fetchRequest)
+        } catch {
+            print(error)
+        }
+        
+        return subjectList
+    }
+    
+    private func populateSubject(in context: NSManagedObjectContext) {
+        let subjectList: [String] = ["Conhecimentos básicos e fundamentais", "Movimento, equilíbrio e leis", "Fenômeno elétricos e mangéticos", "Potência, energia e trabalho", "Oscilações, radiação, ondas e óptica", "Mecânica e universo", "O calor e os fenômenos térmicos"]
+        
+        for subjectName in subjectList {
+            createSubject(with: subjectName, in: context)
+        }
+    }
+    
+    private func populateTopics(in context: NSManagedObjectContext) {
+        let topicList: [[String]] = [
+        ["Gráficos e vetores", "Física e o cotidiano", "Noções de ordem de grandeza", "Sistema Internacional de Unidades"],
+        ["Mecânica: tempo, espaço, velocidade e aceleração", "Inércia", "Dinâmica de massa", "Força e variação", "Leis de Newton", "Equilíbrio estático", "Hidrostática"],
+        ["Correntes contínua e alternada", "Medidores elétricos", "Representação gráfica de circuitos", "Potência e consumo de energia em dispositivos elétricos", "Lei de Ohm", "Carga elétrica e corrente elétrica", "Campo elétrico e resistividade", "Campo magnético", "Imãs permanentes", "Circuitos elétricos simples", "Relações entre grandezas elétricas: tensão, corrente, potência e energia"],
+        ["Trabalho da força gravitacional", "Energia potencial e energia cinética", "Forças conservativas e dissipativas", "Energia mecânica e dissipação de energia"],
+        ["Reflexão e refração", "Óptica geométrica", "Formação de imagens", "Fenômenos ondulatórios", "Propagação"],
+        ["Lei da Gravitação Universal", "Movimentos de corpos celestes", "Força peso", "Aceleração gravitacional", "Leis de Kepler", "A origem do universo e sua evolução"],
+        ["Máquinas térmicas", "Dilataçnao térmica", "Leis da Termodinâmica", "Comportamento de gases ideais", "Conceitos de calor e de temperatura", "Transferência de calor e equlíbrio térmico", "Aplicações e fenômenos térmicos de uso cotidiano", "Mudanças de estado físico e calor latente de transformação", "Compreensão de fenômenos climáticos relacionados ao ciclo da água"]
+        ]
+        
+        let subjectList = fetchSubjects(in: context)
+        
+        for i in 0..<subjectList.count {
+            
+            for item in topicList[i] {
+                
+                createTopic(with: item, belongsTo: subjectList[i], in: context)
+            }
+        }
+        
     }
     
     // MARK: - Core Data stack
