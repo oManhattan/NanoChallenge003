@@ -24,16 +24,21 @@ class SubjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.subjectList = fetchSubject()
+        fetchSubject()
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        self.title = "Física"
+        self.title = "E-Nêutron"
         
         table.register(SubjectTableViewCell.self, forCellReuseIdentifier: "cell")
         table.keyboardDismissMode = .interactive
         table.delegate = self
         table.dataSource = self
+        
+        searchBar.placeholder = "Buscar nome assunto"
+        searchBar.delegate = self
+        
+//        setupHideKeyboard()
     }
     
     // MARK - Keyboard functions
@@ -49,17 +54,41 @@ class SubjectViewController: UIViewController {
     
     // MARK - CoreData functions
     
-    func fetchSubject() -> [Subject] {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
+    func fetchSubject() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         let fetch = Subject.fetchRequest()
+        fetch.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "yellowProgress", ascending: true), NSSortDescriptor(key: "redProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
         var list: [Subject] = []
-        
         do {
             list = try context.fetch(fetch)
         } catch { print(error) }
         
-        return list
+        self.subjectList = list
+        DispatchQueue.main.async {
+            self.table.reloadData()
+        }
+    }
+    
+    func fetchWithFilter(text: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Subject.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "yellowProgress", ascending: true), NSSortDescriptor(key: "redProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
+        
+        let predicate1 = NSPredicate(format: "name CONTAINS[c] %@", argumentArray: [text])
+        fetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate1])
+        
+        var list: [Subject] = []
+        
+        do {
+            list = try context.fetch(fetchRequest)
+        } catch { print(error) }
+        
+        self.subjectList = list
+        DispatchQueue.main.async {
+            self.table.reloadData()
+        }
     }
 }
 
@@ -78,7 +107,7 @@ extension SubjectViewController: UITableViewDelegate {
         topicsView.selectedSubject = self.subjectList[indexPath.row]
         
         topicsView.update = {
-            self.subjectList = self.fetchSubject()
+            self.fetchSubject()
             DispatchQueue.main.async {
                 self.table.reloadData()
             }
@@ -106,7 +135,7 @@ extension SubjectViewController: UITableViewDataSource {
 
         cell.bar?.setProgressWithConstraints(green: subject.greenProgress, yellow: subject.yellowProgress, red: subject.redProgress)
 
-        guard let date = subject.latestDate else {
+        guard let date = subject.latestDate, date != Date.distantPast else {
             cell.date?.text = subject.name ?? "N/A"
             cell.date?.textColor = .black
             cell.name?.text = ""
@@ -120,6 +149,19 @@ extension SubjectViewController: UITableViewDataSource {
         cell.date?.text = "Último estudo: \(formatter.string(from: date))"
 
         return cell
+    }
+}
+
+extension SubjectViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard !searchText.isEmpty else {
+            fetchSubject()
+            return
+        }
+        
+        fetchWithFilter(text: searchText)
+        
     }
 }
 

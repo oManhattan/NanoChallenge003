@@ -24,11 +24,11 @@ class SavedDateViewController: UIViewController {
         
         switch statusNumber {
         case 1:
-            return (image?.withTintColor(green, renderingMode: .alwaysOriginal))!
+            return (image?.withTintColor(red, renderingMode: .alwaysOriginal))!
         case 2:
             return (image?.withTintColor(yellow, renderingMode: .alwaysOriginal))!
         case 3:
-            return (image?.withTintColor(red, renderingMode: .alwaysOriginal))!
+            return (image?.withTintColor(green, renderingMode: .alwaysOriginal))!
         default:
             return (image?.withTintColor(gray, renderingMode: .alwaysOriginal))!
         }
@@ -152,5 +152,16 @@ extension SavedDateViewController: UITextViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let height = navigationController?.navigationBar.frame.height else { return }
             moveAndResizeImage(for: height)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let text = textView.text else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        selectedDate?.setValue(text, forKey: "notes")
+        
+        do {
+            try context.save()
+        } catch { print(error) }
     }
 }

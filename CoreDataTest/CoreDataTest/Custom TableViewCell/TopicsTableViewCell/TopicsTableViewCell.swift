@@ -22,9 +22,11 @@ class TopicsTableViewCell: UITableViewCell {
             if dateIsCentered {
                 dateTop?.isActive = false
                 dateCentered?.isActive = true
+                self.date.numberOfLines = 0
             } else {
                 dateCentered?.isActive = false
                 dateTop?.isActive = true
+                self.date.numberOfLines = 1
             }
         }
     }
@@ -55,8 +57,7 @@ class TopicsTableViewCell: UITableViewCell {
         let dateTop = date.topAnchor.constraint(equalTo: self.centerYAnchor, constant: 2)
         let dateCentered = date.centerYAnchor.constraint(equalTo: centerYAnchor)
         date.adjustsFontSizeToFitWidth = true
-        date.numberOfLines = 2
-        date.lineBreakMode = .byTruncatingTail
+        date.numberOfLines = 1
         
         rightArrow.translatesAutoresizingMaskIntoConstraints = false
         rightArrow.image = UIImage(systemName: "chevron.right")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
@@ -67,11 +68,11 @@ class TopicsTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             title.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             title.bottomAnchor.constraint(equalTo: self.centerYAnchor, constant: 2),
-            title.rightAnchor.constraint(equalTo: status.leftAnchor, constant: -10),
+            title.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -58),
             
             dateTop,
             date.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            date.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
+            date.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -58),
             
             rightArrow.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
             rightArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -111,13 +112,13 @@ class TopicsTableViewCell: UITableViewCell {
         
         switch statusNumber {
         case 1:
-            image = image?.withTintColor(green, renderingMode: .alwaysOriginal)
+            image = image?.withTintColor(red, renderingMode: .alwaysOriginal)
             break
         case 2:
             image = image?.withTintColor(yellow, renderingMode: .alwaysOriginal)
             break
         case 3:
-            image = image?.withTintColor(red, renderingMode: .alwaysOriginal)
+            image = image?.withTintColor(green, renderingMode: .alwaysOriginal)
             break
         default:
             image = image?.withTintColor(gray, renderingMode: .alwaysOriginal)

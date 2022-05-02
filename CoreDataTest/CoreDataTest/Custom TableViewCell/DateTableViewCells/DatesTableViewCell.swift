@@ -9,22 +9,16 @@ import UIKit
 
 class DatesTableViewCell: UITableViewCell {
 
-    private var data = UILabel()
-    private var status = UIImageView()
-    private var rightArrow = UIImageView()
+    private var data: UILabel?
+    private var status: UIImageView?
+    private var rightArrow: UIImageView?
     
     public let identifier = "DatesTableViewCell"
     
-    public func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    private func initComplement() {
+        let data = UILabel()
+        let status = UIImageView()
+        let rightArrow = UIImageView()
         
         self.addSubview(data)
         self.addSubview(status)
@@ -50,20 +44,27 @@ class DatesTableViewCell: UITableViewCell {
             status.heightAnchor.constraint(equalToConstant: 20)
         ])
         
+        self.data = data
+        self.status = status
+        self.rightArrow = rightArrow
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        initComplement()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initComplement()
     }
     
     public func setDate(date: String) {
-        self.data.text = date
+        self.data?.text = date
     }
     
     public func getDate() -> String {
-        return data.text ?? ""
+        return data?.text ?? ""
     }
     
     public func setStatus(statusNumber: Int) {
@@ -76,23 +77,23 @@ class DatesTableViewCell: UITableViewCell {
         
         switch statusNumber {
         case 1:
-            image = image?.withTintColor(green, renderingMode: .alwaysOriginal)
+            image = image?.withTintColor(red, renderingMode: .alwaysOriginal)
             break
         case 2:
             image = image?.withTintColor(yellow, renderingMode: .alwaysOriginal)
             break
         case 3:
-            image = image?.withTintColor(red, renderingMode: .alwaysOriginal)
+            image = image?.withTintColor(green, renderingMode: .alwaysOriginal)
             break
         default:
             image = image?.withTintColor(gray, renderingMode: .alwaysOriginal)
         }
         
-        self.status.image = image
+        self.status?.image = image
     }
 
     public func getStatus() -> UIImage {
-        guard let image = self.status.image else {
+        guard let image = self.status?.image else {
             return UIImage(systemName: "circle.fill")!.withTintColor(UIColor(red: 0.894, green: 0.894, blue: 0.894, alpha: 1), renderingMode: .alwaysOriginal)
         }
         

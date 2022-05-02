@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UIFont.familyNames.forEach({ name in
+            for font_name in UIFont.fontNames(forFamilyName: name) {
+                print("\n\(font_name)")
+            }
+        })
+        
         if isNewUser() {
             let context = persistentContainer.newBackgroundContext()
             populateSubject(in: context)
@@ -140,7 +146,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 createTopic(with: item, belongsTo: subjectList[i], in: context)
             }
         }
-        
     }
     
     // MARK: - Core Data stack

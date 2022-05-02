@@ -26,13 +26,16 @@ class TopicsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.topicList = fetchTopics()
+        fetchTopics()
         
         self.title = self.selectedSubject?.name ?? "N/A"
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
         
         progressBar.layer.cornerRadius = 3
         progressBar.setProgressWithConstraints(green: selectedSubject?.greenProgress ?? 0, yellow: selectedSubject?.yellowProgress ?? 0, red: selectedSubject?.redProgress ?? 0)
+        
+        searchBar.placeholder = "Buscar nome tópico"
+        searchBar.delegate = self
         
         table.register(TopicsTableViewCell.self, forCellReuseIdentifier: "cell")
         table.delegate = self
@@ -48,9 +51,45 @@ class TopicsViewController: UIViewController {
     
     // Mark - Core Data functions
     
-    private func fetchTopics() -> [Topic] {
-        guard let list = selectedSubject?.topic else { return [] }
-        return list
+    private func fetchTopics() {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Topic.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latestSavedStatus", ascending: true), NSSortDescriptor(key: "latestSavedDate", ascending: true)]
+        fetchRequest.predicate = NSPredicate(format: "subject.name == %@", argumentArray: [self.selectedSubject?.name ?? "N/A"])
+        
+        var list: [Topic] = []
+        
+        do {
+            list = try context.fetch(fetchRequest)
+        } catch { print(error) }
+        
+        self.topicList = list
+        DispatchQueue.main.async {
+            self.table.reloadData()
+        }
+    }
+    
+    private func fetchWithFilter(text: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Topic.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latestSavedStatus", ascending: true), NSSortDescriptor(key: "latestSavedDate", ascending: true)]
+        let predicate1 = NSPredicate(format: "subject.name == %@", argumentArray: [self.selectedSubject?.name ?? "N/A"])
+        let predicate2 = NSPredicate(format: "name CONTAINS[c] %@", argumentArray: [text])
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+        
+        var list: [Topic] = []
+        
+        do {
+            list = try context.fetch(fetchRequest)
+        } catch { print(error) }
+        
+        self.topicList = list
+        DispatchQueue.main.async {
+            self.table.reloadData()
+        }
     }
     
     private func countProgress(topicList: [Topic]) {
@@ -66,13 +105,13 @@ class TopicsViewController: UIViewController {
             
             switch topic.latestSavedStatus {
             case 1:
-                green += 1
+                red += 1
                 break
             case 2:
                 yellow += 1
                 break
             case 3:
-                red += 1
+                green += 1
                 break
             default:
                 continue
@@ -108,7 +147,7 @@ extension TopicsViewController: UITableViewDelegate {
         view.endEditing(true)
         datesView.selectedTopic = self.topicList[indexPath.row]
         datesView.updateTopic = {
-            self.topicList = self.fetchTopics()
+            self.fetchTopics()
             self.countProgress(topicList: self.topicList)
             
             if !self.table.hasUncommittedUpdates {
@@ -144,7 +183,7 @@ extension TopicsViewController: UITableViewDataSource {
         cell.title.text = topic.name ?? "N/A"
         cell.setStatus(statusNumber: Int(topic.latestSavedStatus))
         
-        guard let date = topic.latestSavedDate else {
+        guard let date = topic.latestSavedDate, date != Date.distantPast else {
             cell.date.text = topic.name ?? "N/A"
             cell.date.textColor = .black
             cell.dateIsCentered = true
@@ -160,6 +199,18 @@ extension TopicsViewController: UITableViewDataSource {
         cell.date.text = "Último estudo: \(formatter.string(from: date))"
         
         return cell
+    }
+}
+
+extension TopicsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard !searchText.isEmpty else {
+            fetchTopics()
+            return
+        }
+        
+        fetchWithFilter(text: searchText)
     }
 }
 

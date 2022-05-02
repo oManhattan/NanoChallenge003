@@ -14,9 +14,17 @@
 		1203AA0728179D1C00DBAB2C /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0128179D1C00DBAB2C /* Subject+CoreDataProperties.swift */; };
 		1203AA0828179D1C00DBAB2C /* SavedDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0228179D1C00DBAB2C /* SavedDate+CoreDataClass.swift */; };
 		1203AA0928179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203AA0328179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift */; };
+		12216B71282050C700A34113 /* SF-Compact-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B68282050C600A34113 /* SF-Compact-Rounded-Light.otf */; };
+		12216B72282050C700A34113 /* SF-Compact-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B69282050C600A34113 /* SF-Compact-Rounded-Semibold.otf */; };
+		12216B73282050C700A34113 /* SF-Compact-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B6A282050C600A34113 /* SF-Compact-Rounded-Ultralight.otf */; };
+		12216B74282050C700A34113 /* SF-Compact-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B6B282050C600A34113 /* SF-Compact-Rounded-Heavy.otf */; };
+		12216B75282050C700A34113 /* SF-Compact-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B6C282050C600A34113 /* SF-Compact-Rounded-Bold.otf */; };
+		12216B76282050C700A34113 /* SF-Compact-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B6D282050C700A34113 /* SF-Compact-Rounded-Medium.otf */; };
+		12216B77282050C700A34113 /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B6E282050C700A34113 /* SF-Compact-Rounded-Black.otf */; };
+		12216B78282050C700A34113 /* SF-Compact-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B6F282050C700A34113 /* SF-Compact-Rounded-Regular.otf */; };
+		12216B79282050C700A34113 /* SF-Compact-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12216B70282050C700A34113 /* SF-Compact-Rounded-Thin.otf */; };
 		122BE64A280C5B42007C4797 /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */; };
 		122BE655280CBA6C007C4797 /* DatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */; };
-		122BE656280CBA6C007C4797 /* DatesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */; };
 		1238BF67280E56F60014DC05 /* AddDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1238BF66280E56F60014DC05 /* AddDateViewController.swift */; };
 		128087D9281371CA006CA9F3 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */; };
 		12996D92280AFA4A006DFF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12996D91280AFA4A006DFF35 /* AppDelegate.swift */; };
@@ -41,9 +49,17 @@
 		1203AA0128179D1C00DBAB2C /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1203AA0228179D1C00DBAB2C /* SavedDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1203AA0328179D1C00DBAB2C /* SavedDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		12216B68282050C600A34113 /* SF-Compact-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Light.otf"; sourceTree = "<group>"; };
+		12216B69282050C600A34113 /* SF-Compact-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		12216B6A282050C600A34113 /* SF-Compact-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		12216B6B282050C600A34113 /* SF-Compact-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		12216B6C282050C600A34113 /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		12216B6D282050C700A34113 /* SF-Compact-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		12216B6E282050C700A34113 /* SF-Compact-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Black.otf"; sourceTree = "<group>"; };
+		12216B6F282050C700A34113 /* SF-Compact-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		12216B70282050C700A34113 /* SF-Compact-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Thin.otf"; sourceTree = "<group>"; };
 		122BE648280C5B42007C4797 /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
 		122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTableViewCell.swift; sourceTree = "<group>"; };
-		122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatesTableViewCell.xib; sourceTree = "<group>"; };
 		1238BF66280E56F60014DC05 /* AddDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateViewController.swift; sourceTree = "<group>"; };
 		128087D8281371CA006CA9F3 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
 		12996D8E280AFA4A006DFF35 /* CoreDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +102,22 @@
 			path = CordeDataModel;
 			sourceTree = "<group>";
 		};
+		12216B5E28204FD700A34113 /* Fontes */ = {
+			isa = PBXGroup;
+			children = (
+				12216B6E282050C700A34113 /* SF-Compact-Rounded-Black.otf */,
+				12216B6C282050C600A34113 /* SF-Compact-Rounded-Bold.otf */,
+				12216B6B282050C600A34113 /* SF-Compact-Rounded-Heavy.otf */,
+				12216B68282050C600A34113 /* SF-Compact-Rounded-Light.otf */,
+				12216B6D282050C700A34113 /* SF-Compact-Rounded-Medium.otf */,
+				12216B6F282050C700A34113 /* SF-Compact-Rounded-Regular.otf */,
+				12216B69282050C600A34113 /* SF-Compact-Rounded-Semibold.otf */,
+				12216B70282050C700A34113 /* SF-Compact-Rounded-Thin.otf */,
+				12216B6A282050C600A34113 /* SF-Compact-Rounded-Ultralight.otf */,
+			);
+			path = Fontes;
+			sourceTree = "<group>";
+		};
 		122BE647280C5B1D007C4797 /* TopicsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */,
-				122BE654280CBA6C007C4797 /* DatesTableViewCell.xib */,
 			);
 			path = DateTableViewCells;
 			sourceTree = "<group>";
@@ -140,6 +171,7 @@
 			children = (
 				12996D91280AFA4A006DFF35 /* AppDelegate.swift */,
 				12996D93280AFA4A006DFF35 /* SceneDelegate.swift */,
+				12216B5E28204FD700A34113 /* Fontes */,
 				1203AA0A28179D2300DBAB2C /* CordeDataModel */,
 				1238BF68280EF8490014DC05 /* Utilities */,
 				12996DAC280AFFE3006DFF35 /* Custom TableViewCell */,
@@ -259,10 +291,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12216B74282050C700A34113 /* SF-Compact-Rounded-Heavy.otf in Resources */,
+				12216B79282050C700A34113 /* SF-Compact-Rounded-Thin.otf in Resources */,
+				12216B78282050C700A34113 /* SF-Compact-Rounded-Regular.otf in Resources */,
 				12996DA1280AFA4C006DFF35 /* LaunchScreen.storyboard in Resources */,
-				122BE656280CBA6C007C4797 /* DatesTableViewCell.xib in Resources */,
 				12996D9E280AFA4C006DFF35 /* Assets.xcassets in Resources */,
+				12216B75282050C700A34113 /* SF-Compact-Rounded-Bold.otf in Resources */,
+				12216B73282050C700A34113 /* SF-Compact-Rounded-Ultralight.otf in Resources */,
+				12216B72282050C700A34113 /* SF-Compact-Rounded-Semibold.otf in Resources */,
+				12216B76282050C700A34113 /* SF-Compact-Rounded-Medium.otf in Resources */,
 				12996D99280AFA4A006DFF35 /* Main.storyboard in Resources */,
+				12216B77282050C700A34113 /* SF-Compact-Rounded-Black.otf in Resources */,
+				12216B71282050C700A34113 /* SF-Compact-Rounded-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,10 +477,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreDataTest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "E-Nêutron";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -455,7 +497,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -464,10 +506,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreDataTest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "E-Nêutron";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -482,7 +526,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

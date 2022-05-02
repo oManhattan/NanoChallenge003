@@ -12,8 +12,7 @@ class DatesViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
-    
-    let customeCell = DatesTableViewCell()
+    @IBOutlet weak var searchBar: UISearchBar!
     
     public var selectedTopic: Topic?
     private var dateList: [SavedDate] = []
@@ -33,9 +32,13 @@ class DatesViewController: UIViewController {
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).numberOfLines = 2
         
-        self.table.contentInsetAdjustmentBehavior = .never
+        self.table.contentInsetAdjustmentBehavior = .automatic
+        self.table.register(DatesTableViewCell.self, forCellReuseIdentifier: "cell")
         table.delegate = self
         table.dataSource = self
+        
+        searchBar.placeholder = "Buscar conteúdo das anotações"
+        searchBar.delegate = self
         
         self.table.reloadData()
     }
@@ -57,7 +60,8 @@ class DatesViewController: UIViewController {
 
 extension DatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let savedNotes = storyboard?.instantiateViewController(withIdentifier: "SavedDateViewController") as! SavedDateViewController
+        view.endEditing(true)
+        guard let savedNotes = storyboard?.instantiateViewController(withIdentifier: "SavedDateViewController") as? SavedDateViewController else { return }
         
         savedNotes.selectedDate = self.dateList[indexPath.row]
         
@@ -68,8 +72,46 @@ extension DatesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "Deletar", handler: {_,_,_ in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Deletar", handler: { [self]_,_,_ in
             
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            let context = appDelegate.persistentContainer.viewContext
+            
+            self.selectedTopic?.removeFromSavedDate(self.dateList[indexPath.row])
+            
+            context.delete(self.dateList[indexPath.row])
+            
+            saveContext(with: context)
+            
+            let text = searchBar.text ?? ""
+            
+            if text.isEmpty {
+                fetchDates()
+            } else {
+                fetchWithFilter(text: text)
+            }
+            
+            if self.dateList.isEmpty {
+                self.selectedTopic?.setValue(nil, forKey: "latestSavedDate")
+                self.selectedTopic?.setValue(0, forKey: "latestSavedStatus")
+            } else {
+                var date = Date.distantPast
+                var newLatestDate: SavedDate?
+                
+                for i in self.dateList {
+                    if date < i.date ?? Date.distantPast {
+                        newLatestDate = i
+                        date = newLatestDate?.date ?? Date.distantPast
+                    }
+                }
+                
+                self.selectedTopic?.setValue(newLatestDate?.date ?? Date.distantPast, forKey: "latestSavedDate")
+                self.selectedTopic?.setValue(newLatestDate?.status, forKey: "latestSavedStatus")
+            }
+            
+            saveContext(with: context)
+            
+            self.latestDateHasChanged = true
         })
         
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
@@ -84,14 +126,14 @@ extension DatesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: customeCell.identifier, for: indexPath) as! DatesTableViewCell
-        
+        guard let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? DatesTableViewCell else {
+            
+            return UITableViewCell() }
         let savedDate = dateList[indexPath.row]
         
         cell.setStatus(statusNumber: Int(savedDate.status))
         
         guard let date = savedDate.date else {
-            cell.setDate(date: "--")
             return cell
         }
         
@@ -139,6 +181,46 @@ extension DatesViewController: CreateNewDate {
         fetchDates()
     }
     
+    private func fetchDates() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = SavedDate.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        fetchRequest.predicate = NSPredicate(format: "topic.name == %@", argumentArray: [self.selectedTopic?.name ?? "N/A"])
+        
+        var list: [SavedDate] = []
+        
+        do {
+            list = try context.fetch(fetchRequest)
+        } catch { print(error) }
+        
+        self.dateList = list
+        DispatchQueue.main.async {
+            self.table.reloadData()
+        }
+    }
+    
+    private func fetchWithFilter(text: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = SavedDate.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        let predicate1 = NSPredicate(format: "topic.name == %@", argumentArray: [self.selectedTopic?.name ?? "N/A"])
+        let predicate2 = NSPredicate(format: "notes CONTAINS[c] %@", argumentArray: [text])
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+        
+        var list: [SavedDate] = []
+        
+        do {
+            list = try context.fetch(fetchRequest)
+        } catch { print(error) }
+        
+        self.dateList = list
+        DispatchQueue.main.async {
+            self.table.reloadData()
+        }
+    }
+    
     private func saveContext(with context: NSManagedObjectContext) {
         do {
             try context.save()
@@ -146,12 +228,15 @@ extension DatesViewController: CreateNewDate {
             print(error)
         }
     }
-    
-    private func fetchDates() {
-        guard let list = selectedTopic?.savedDate else { return }
-        self.dateList = list
-        DispatchQueue.main.async {
-            self.table.reloadData()
+}
+
+extension DatesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            fetchDates()
+            return
         }
+        
+        fetchWithFilter(text: searchText)
     }
 }

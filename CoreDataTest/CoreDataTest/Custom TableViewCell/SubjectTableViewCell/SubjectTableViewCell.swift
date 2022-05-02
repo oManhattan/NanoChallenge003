@@ -54,11 +54,11 @@ class SubjectTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             date.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            date.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            date.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30),
             date.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             name.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            name.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            name.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30),
             name.bottomAnchor.constraint(equalTo: date.topAnchor, constant: -3),
             
             arrow.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),

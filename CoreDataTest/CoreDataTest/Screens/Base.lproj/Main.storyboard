@@ -106,28 +106,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-Lb-PhS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mfi-qr-f99">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="95" width="414" height="767"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DatesTableViewCell" id="v4m-N3-FFP" customClass="DatesTableViewCell" customModule="CoreDataTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v4m-N3-FFP" id="jcK-0X-vDg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t6X-6z-RSN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="t6X-6z-RSN" firstAttribute="trailing" secondItem="mfi-qr-f99" secondAttribute="trailing" id="43h-BW-drw"/>
-                            <constraint firstItem="mfi-qr-f99" firstAttribute="leading" secondItem="t6X-6z-RSN" secondAttribute="leading" id="B29-3N-x5u"/>
-                            <constraint firstItem="mfi-qr-f99" firstAttribute="top" secondItem="t6X-6z-RSN" secondAttribute="top" id="Zrs-zu-5Me"/>
-                            <constraint firstItem="t6X-6z-RSN" firstAttribute="bottom" secondItem="mfi-qr-f99" secondAttribute="bottom" id="rKA-Ny-kRR"/>
+                            <constraint firstItem="mNe-Lb-PhS" firstAttribute="leading" secondItem="t6X-6z-RSN" secondAttribute="leading" id="73r-So-ByA"/>
+                            <constraint firstItem="mNe-Lb-PhS" firstAttribute="trailing" secondItem="t6X-6z-RSN" secondAttribute="trailing" id="Bb4-bp-fMR"/>
+                            <constraint firstItem="mfi-qr-f99" firstAttribute="trailing" secondItem="t6X-6z-RSN" secondAttribute="trailing" id="XQE-zm-3E2"/>
+                            <constraint firstItem="mNe-Lb-PhS" firstAttribute="top" secondItem="t6X-6z-RSN" secondAttribute="top" id="ZXk-Or-XoI"/>
+                            <constraint firstItem="mfi-qr-f99" firstAttribute="bottom" secondItem="t6X-6z-RSN" secondAttribute="bottom" id="dMy-NH-BLX"/>
+                            <constraint firstItem="mfi-qr-f99" firstAttribute="top" secondItem="mNe-Lb-PhS" secondAttribute="bottom" id="fz6-bv-FDa"/>
+                            <constraint firstItem="mfi-qr-f99" firstAttribute="leading" secondItem="t6X-6z-RSN" secondAttribute="leading" id="jwm-rU-7TW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mac-hM-czK">
@@ -139,12 +136,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="lRm-oK-LuJ" id="8oC-da-Qsk"/>
+                        <outlet property="searchBar" destination="mNe-Lb-PhS" id="gyQ-dX-OpU"/>
                         <outlet property="table" destination="mfi-qr-f99" id="YY4-rZ-1fT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yg-b5-lJP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3258" y="40"/>
+            <point key="canvasLocation" x="3257.971014492754" y="39.508928571428569"/>
         </scene>
         <!--Add Date View Controller-->
         <scene sceneID="N44-fC-amQ">

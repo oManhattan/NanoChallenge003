@@ -38,7 +38,7 @@ class RadioButtonGroup: UIControl {
         greenStatus.selectedImage = selectedImage?.withTintColor(greenColor, renderingMode: .alwaysOriginal)
         greenStatus.statusImage?.image = greenStatus.unselectedImage
         greenStatus.title?.text = "Entendi"
-        greenStatus.tag = 1
+        greenStatus.tag = 3
         
         yellowStatus.translatesAutoresizingMaskIntoConstraints = false
         yellowStatus.unselectedImage = unselectedImage?.withTintColor(yellowColor, renderingMode: .alwaysOriginal)
@@ -52,7 +52,7 @@ class RadioButtonGroup: UIControl {
         redStatus.selectedImage = selectedImage?.withTintColor(redColor, renderingMode: .alwaysOriginal)
         redStatus.statusImage?.image = redStatus.unselectedImage
         redStatus.title?.text = "Não entendi"
-        redStatus.tag = 3
+        redStatus.tag = 1
         
         NSLayoutConstraint.activate([
             redStatus.topAnchor.constraint(equalTo: topAnchor),
