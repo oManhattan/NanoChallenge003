@@ -105,15 +105,7 @@
 		12216B5E28204FD700A34113 /* Fontes */ = {
 			isa = PBXGroup;
 			children = (
-				12216B6E282050C700A34113 /* SF-Compact-Rounded-Black.otf */,
-				12216B6C282050C600A34113 /* SF-Compact-Rounded-Bold.otf */,
-				12216B6B282050C600A34113 /* SF-Compact-Rounded-Heavy.otf */,
-				12216B68282050C600A34113 /* SF-Compact-Rounded-Light.otf */,
-				12216B6D282050C700A34113 /* SF-Compact-Rounded-Medium.otf */,
-				12216B6F282050C700A34113 /* SF-Compact-Rounded-Regular.otf */,
-				12216B69282050C600A34113 /* SF-Compact-Rounded-Semibold.otf */,
-				12216B70282050C700A34113 /* SF-Compact-Rounded-Thin.otf */,
-				12216B6A282050C600A34113 /* SF-Compact-Rounded-Ultralight.otf */,
+				123368CD2821AF6B00079867 /* SF-Rounded */,
 			);
 			path = Fontes;
 			sourceTree = "<group>";
@@ -132,6 +124,22 @@
 				122BE653280CBA6C007C4797 /* DatesTableViewCell.swift */,
 			);
 			path = DateTableViewCells;
+			sourceTree = "<group>";
+		};
+		123368CD2821AF6B00079867 /* SF-Rounded */ = {
+			isa = PBXGroup;
+			children = (
+				12216B6E282050C700A34113 /* SF-Compact-Rounded-Black.otf */,
+				12216B6C282050C600A34113 /* SF-Compact-Rounded-Bold.otf */,
+				12216B6B282050C600A34113 /* SF-Compact-Rounded-Heavy.otf */,
+				12216B68282050C600A34113 /* SF-Compact-Rounded-Light.otf */,
+				12216B6D282050C700A34113 /* SF-Compact-Rounded-Medium.otf */,
+				12216B6F282050C700A34113 /* SF-Compact-Rounded-Regular.otf */,
+				12216B69282050C600A34113 /* SF-Compact-Rounded-Semibold.otf */,
+				12216B70282050C700A34113 /* SF-Compact-Rounded-Thin.otf */,
+				12216B6A282050C600A34113 /* SF-Compact-Rounded-Ultralight.otf */,
+			);
+			path = "SF-Rounded";
 			sourceTree = "<group>";
 		};
 		1238BF68280EF8490014DC05 /* Utilities */ = {

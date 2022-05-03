@@ -16,27 +16,18 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lhE-jF-ATt">
-                                <rect key="frame" x="132" y="279" width="150" height="198"/>
+                                <rect key="frame" x="132" y="278.5" width="150" height="199"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon nano 3" translatesAutoresizingMaskIntoConstraints="NO" id="G1J-g6-zbo">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="G1J-g6-zbo">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="VPz-OQ-DWI"/>
                                             <constraint firstAttribute="width" constant="150" id="ez3-fv-nlp"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keO-AO-Y3N">
-                                        <rect key="frame" x="6.5" y="163" width="137.5" height="35"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="E-Nêutron">
-                                                <attributes>
-                                                    <font key="NSFont" size="30" name="SFProRounded-Regular"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E-Nêutron" translatesAutoresizingMaskIntoConstraints="NO" id="K3J-JT-LGo">
+                                        <rect key="frame" x="4" y="163" width="142" height="36"/>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -54,6 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon nano 3" width="713" height="719"/>
+        <image name="E-Nêutron" width="142" height="36"/>
+        <image name="splash" width="142" height="143"/>
     </resources>
 </document>
