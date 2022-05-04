@@ -15,15 +15,16 @@ class SubjectTableViewCell: UITableViewCell {
     public weak var bar: ProgressBar?
     public weak var arrow: UIImageView?
     
-    private func setup(name: String, date: String, green: Double, yellow: Double, red: Double) {
+    private func setup(name: String, date: String, green: Double, yellow: Double, red: Double, withAnimation: Bool) {
         self.name?.text = name
         self.date?.text = date
-        self.bar?.setProgressWithConstraints(green: green, yellow: yellow, red: red)
+        self.bar?.setProgressWithConstraints(green: green, yellow: yellow, red: red, withAnimation: withAnimation)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         date?.textColor = .systemGray
+//        bar?.setProgressWithConstraints(green: 0, yellow: 0, red: 0, withAnimation: false)
     }
     
     private func initComplement() {
