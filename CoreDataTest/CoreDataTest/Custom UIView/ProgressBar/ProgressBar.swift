@@ -77,27 +77,39 @@ class ProgressBar: UIView {
         greenBar.layoutIfNeeded()
         greenWidth = newGreenWidthConstraint
 
+        if withAnimation {
+            UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseIn, animations: {
+                self.layoutIfNeeded()
+            })
+        }
+        
         yellowWidth.isActive = false
         let newYellowWidthConstraint = yellowBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: yellow)
         newYellowWidthConstraint.isActive = true
         yellowBar.layoutIfNeeded()
         yellowWidth = newYellowWidthConstraint
 
+        if withAnimation {
+            UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseIn, animations: {
+                self.layoutIfNeeded()
+            })
+        }
+        
         redWidth.isActive = false
         let newRedWidthConstraint = redBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: red)
         newRedWidthConstraint.isActive = true
         redBar.layoutIfNeeded()
         redWidth = newRedWidthConstraint
 
-        self.greenCurrentWidthConstraitn = greenWidth
-        self.yellowCurrentWidthConstraitn = yellowWidth
-        self.redCurrentWidthConstraitn = redWidth
-        
         if withAnimation {
             UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseIn, animations: {
                 self.layoutIfNeeded()
             })
         }
+        
+        self.greenCurrentWidthConstraitn = greenWidth
+        self.yellowCurrentWidthConstraitn = yellowWidth
+        self.redCurrentWidthConstraitn = redWidth
         
         self.greenBar = greenBar
         self.yellowBar = yellowBar

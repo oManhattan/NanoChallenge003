@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                        print("== \(names)")
 //                    }
 //                }
-        
         if isNewUser() {
             let context = persistentContainer.newBackgroundContext()
             populateSubject(in: context)
