@@ -93,14 +93,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func createSubject(with name: String, in context: NSManagedObjectContext) {
         let newSubject = Subject(context: context)
         newSubject.setValue(name, forKey: "name")
-        
+        newSubject.setValue(Date.distantPast, forKey: "latestDate")
+        newSubject.setValue(1, forKey: "grayProgress")
+        newSubject.setValue(0, forKey: "greenProgress")
+        newSubject.setValue(0, forKey: "yellowProgress")
+        newSubject.setValue(0, forKey: "redProgress")
         saveContext(context: context)
     }
     
     private func createTopic(with name: String, belongsTo subject: Subject, in context: NSManagedObjectContext) {
         let newTopic = Topic(context: context)
         newTopic.setValue(name, forKey: "name")
-        
+        newTopic.setValue(Date.distantPast, forKey: "latestSavedDate")
+        newTopic.setValue(0, forKey: "latestSavedStatus")
         subject.addToTopic(newTopic)
         
         saveContext(context: context)
@@ -122,8 +127,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func populateSubject(in context: NSManagedObjectContext) {
         let subjectList: [String] = ["Conhecimentos básicos e fundamentais", "Movimento, equilíbrio e leis", "Fenômeno elétricos e mangéticos", "Potência, energia e trabalho", "Oscilações, radiação, ondas e óptica", "Mecânica e universo", "O calor e os fenômenos térmicos"]
         
-        for subjectName in subjectList {
-            createSubject(with: subjectName, in: context)
+        for i in subjectList {
+            createSubject(with: i, in: context)
         }
     }
     

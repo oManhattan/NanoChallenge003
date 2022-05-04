@@ -7,6 +7,7 @@
         <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="savedDate" inverseEntity="Topic"/>
     </entity>
     <entity name="Subject" representedClassName="Subject" syncable="YES">
+        <attribute name="grayProgress" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="greenProgress" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="latestDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -23,7 +24,7 @@
     </entity>
     <elements>
         <element name="SavedDate" positionX="-9" positionY="36" width="128" height="89"/>
+        <element name="Subject" positionX="9" positionY="99" width="128" height="134"/>
         <element name="Topic" positionX="-9" positionY="63" width="128" height="104"/>
-        <element name="Subject" positionX="9" positionY="99" width="128" height="119"/>
     </elements>
 </model>

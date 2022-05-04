@@ -58,28 +58,12 @@ class SubjectViewController: UIViewController {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
-        let fetch1 = Subject.fetchRequest()
-        let predicate1 = NSPredicate(format: "redProgress == 0", argumentArray: [])
-        let predicate2 = NSPredicate(format: "yellowProgress == 0", argumentArray: [])
-        let predicate3 = NSPredicate(format: "greenProgress == 0", argumentArray: [])
-        fetch1.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
-    
-        do {
-            lista = try context.fetch(fetch1)
-        } catch { print(error) }
-        
-        let fetch2 = Subject.fetchRequest()
-        let predicate4 = NSPredicate(format: "redProgress != 0", argumentArray: [])
-        let predicate5 = NSPredicate(format: "yellowProgress != 0", argumentArray: [])
-        let predicate6 = NSPredicate(format: "greenProgress != 0", argumentArray: [])
-        fetch2.predicate = NSCompoundPredicate.init(orPredicateWithSubpredicates: [predicate4, predicate5, predicate6])
-        fetch2.sortDescriptors = [NSSortDescriptor(key: "redProgress", ascending: false), NSSortDescriptor(key: "yellowProgress", ascending: false), NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
+        let fetch = Subject.fetchRequest()
+//        fetch.sortDescriptors = [NSSortDescriptor(key: "grayProgress", ascending: false), NSSortDescriptor(key: "redProgress", ascending: false), NSSortDescriptor(key: "yellowProgress", ascending: false), NSSortDescriptor(key: "greenProgress", ascending: false)]
+        fetch.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "yellowProgress", ascending: true), NSSortDescriptor(key: "redProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
         
         do {
-            let aux = try context.fetch(fetch2)
-            for i in aux {
-                lista.append(i)
-            }
+            lista = try context.fetch(fetch)
         } catch { print(error) }
         
         self.subjectList = lista

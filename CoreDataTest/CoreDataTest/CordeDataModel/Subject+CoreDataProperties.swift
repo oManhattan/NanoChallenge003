@@ -21,6 +21,7 @@ extension Subject {
     @NSManaged public var greenProgress: Double
     @NSManaged public var yellowProgress: Double
     @NSManaged public var redProgress: Double
+    @NSManaged public var grayProgress: Double
     @NSManaged public var topic: [Topic]?
 
 }

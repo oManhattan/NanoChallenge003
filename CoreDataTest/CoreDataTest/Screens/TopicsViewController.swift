@@ -127,6 +127,7 @@ class TopicsViewController: UIViewController {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
+        selectedSubject?.setValue(1 - (green + yellow + red), forKey: "grayProgress")
         selectedSubject?.setValue(green, forKey: "greenProgress")
         selectedSubject?.setValue(yellow, forKey: "yellowProgress")
         selectedSubject?.setValue(red, forKey: "redProgress")
