@@ -92,6 +92,7 @@
 		1203AA0A28179D2300DBAB2C /* CordeDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				12996D9A280AFA4A006DFF35 /* CoreDataTest.xcdatamodeld */,
 				1203AA0028179D1C00DBAB2C /* Subject+CoreDataClass.swift */,
 				1203AA0128179D1C00DBAB2C /* Subject+CoreDataProperties.swift */,
 				1203A9FE28179D1C00DBAB2C /* Topic+CoreDataClass.swift */,
@@ -186,7 +187,6 @@
 				12D5751D280E215E00D3BCF4 /* Custom UIView */,
 				12996DAB280AFACF006DFF35 /* Screens */,
 				12996D9D280AFA4C006DFF35 /* Assets.xcassets */,
-				12996D9A280AFA4A006DFF35 /* CoreDataTest.xcdatamodeld */,
 				12996DA2280AFA4C006DFF35 /* Info.plist */,
 			);
 			path = CoreDataTest;

@@ -64,13 +64,13 @@ class ProgressBar: UIView {
         self.redBar = redBar
     }
       
-    public func setProgressWithConstraints(green: Double, yellow: Double, red: Double) {
+    public func setProgressWithConstraints(green: Double, yellow: Double, red: Double, withAnimation: Bool) {
     
         guard let greenBar = self.greenBar, let yellowBar = self.yellowBar, let redBar = self.redBar else { return }
 
         guard var greenWidth = self.greenCurrentWidthConstraitn, var yellowWidth = self.yellowCurrentWidthConstraitn, var redWidth = self.redCurrentWidthConstraitn else {
             return }
-
+        
         greenWidth.isActive = false
         let newGreenWidthConstraint = greenBar.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: green)
         newGreenWidthConstraint.isActive = true
@@ -92,7 +92,13 @@ class ProgressBar: UIView {
         self.greenCurrentWidthConstraitn = greenWidth
         self.yellowCurrentWidthConstraitn = yellowWidth
         self.redCurrentWidthConstraitn = redWidth
-
+        
+        if withAnimation {
+            UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseIn, animations: {
+                self.layoutIfNeeded()
+            })
+        }
+        
         self.greenBar = greenBar
         self.yellowBar = yellowBar
         self.redBar = redBar

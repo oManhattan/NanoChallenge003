@@ -143,7 +143,6 @@ extension DatesViewController: UITableViewDataSource {
         
         cell.setDate(date: formatter.string(from: date))
         
-        
         return cell
     }
 }

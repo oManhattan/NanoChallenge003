@@ -32,7 +32,8 @@ class TopicsViewController: UIViewController {
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
         
         progressBar.layer.cornerRadius = 3
-        progressBar.setProgressWithConstraints(green: selectedSubject?.greenProgress ?? 0, yellow: selectedSubject?.yellowProgress ?? 0, red: selectedSubject?.redProgress ?? 0)
+        progressBar.setProgressWithConstraints(green: 0, yellow: 0, red: 0, withAnimation: false)
+        progressBar.setProgressWithConstraints(green: selectedSubject?.greenProgress ?? 0, yellow: selectedSubject?.yellowProgress ?? 0, red: selectedSubject?.redProgress ?? 0, withAnimation: true)
         
         searchBar.placeholder = "Buscar nome tópico"
         searchBar.delegate = self
@@ -122,7 +123,7 @@ class TopicsViewController: UIViewController {
         yellow = yellow / Double(topicList.count)
         red = red / Double(topicList.count)
         
-        self.progressBar.setProgressWithConstraints(green: green, yellow: yellow, red: red)
+        self.progressBar.setProgressWithConstraints(green: green, yellow: yellow, red: red, withAnimation: true)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext

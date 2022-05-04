@@ -24,20 +24,19 @@ class SubjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchSubject()
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         self.title = "E-Nêutron"
         
-        table.register(SubjectTableViewCell.self, forCellReuseIdentifier: "cell")
-        table.keyboardDismissMode = .interactive
+        fetchSubject()
+        
         table.delegate = self
         table.dataSource = self
+        table.register(SubjectTableViewCell.self, forCellReuseIdentifier: "cell")
+        table.keyboardDismissMode = .interactive
         
         searchBar.placeholder = "Buscar nome assunto"
         searchBar.delegate = self
-        
 //        setupHideKeyboard()
     }
     
@@ -55,16 +54,35 @@ class SubjectViewController: UIViewController {
     // MARK - CoreData functions
     
     func fetchSubject() {
+        var lista: [Subject] = []
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
-        let fetch = Subject.fetchRequest()
-        fetch.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "yellowProgress", ascending: true), NSSortDescriptor(key: "redProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
-        var list: [Subject] = []
+        let fetch1 = Subject.fetchRequest()
+        let predicate1 = NSPredicate(format: "redProgress == 0", argumentArray: [])
+        let predicate2 = NSPredicate(format: "yellowProgress == 0", argumentArray: [])
+        let predicate3 = NSPredicate(format: "greenProgress == 0", argumentArray: [])
+        fetch1.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
+    
         do {
-            list = try context.fetch(fetch)
+            lista = try context.fetch(fetch1)
         } catch { print(error) }
         
-        self.subjectList = list
+        let fetch2 = Subject.fetchRequest()
+        let predicate4 = NSPredicate(format: "redProgress != 0", argumentArray: [])
+        let predicate5 = NSPredicate(format: "yellowProgress != 0", argumentArray: [])
+        let predicate6 = NSPredicate(format: "greenProgress != 0", argumentArray: [])
+        fetch2.predicate = NSCompoundPredicate.init(orPredicateWithSubpredicates: [predicate4, predicate5, predicate6])
+        fetch2.sortDescriptors = [NSSortDescriptor(key: "redProgress", ascending: false), NSSortDescriptor(key: "yellowProgress", ascending: false), NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
+        
+        do {
+            let aux = try context.fetch(fetch2)
+            for i in aux {
+                lista.append(i)
+            }
+        } catch { print(error) }
+        
+        self.subjectList = lista
         DispatchQueue.main.async {
             self.table.reloadData()
         }
@@ -130,10 +148,10 @@ extension SubjectViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SubjectTableViewCell else { return UITableViewCell() }
 
         let subject = subjectList[indexPath.row]
-        
+        cell.backgroundColor = .clear
         cell.name?.text = subject.name ?? "N/A"
 
-        cell.bar?.setProgressWithConstraints(green: subject.greenProgress, yellow: subject.yellowProgress, red: subject.redProgress)
+        cell.bar?.setProgressWithConstraints(green: subject.greenProgress, yellow: subject.yellowProgress, red: subject.redProgress, withAnimation: false)
 
         guard let date = subject.latestDate, date != Date.distantPast else {
             cell.date?.text = subject.name ?? "N/A"

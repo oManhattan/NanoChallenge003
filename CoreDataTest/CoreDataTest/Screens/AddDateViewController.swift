@@ -61,6 +61,7 @@ class AddDateViewController: UIViewController {
         scrollView.addSubview(datePicker)
         scrollView.addSubview(statusSelector)
         scrollView.addSubview(textView)
+        scrollView.canCancelContentTouches = true
         scrollView.keyboardDismissMode = .interactive
         
         datePicker.translatesAutoresizingMaskIntoConstraints = false
