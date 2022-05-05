@@ -59,7 +59,6 @@ class SubjectViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         let fetch = Subject.fetchRequest()
-//        fetch.sortDescriptors = [NSSortDescriptor(key: "grayProgress", ascending: false), NSSortDescriptor(key: "redProgress", ascending: false), NSSortDescriptor(key: "yellowProgress", ascending: false), NSSortDescriptor(key: "greenProgress", ascending: false)]
         fetch.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "yellowProgress", ascending: true), NSSortDescriptor(key: "redProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
         
         do {
