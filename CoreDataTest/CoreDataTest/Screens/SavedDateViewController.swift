@@ -44,6 +44,11 @@ class SavedDateViewController: UIViewController {
         static let tamanhoNavBarGrande: CGFloat = 96.5
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.imageStatus?.image = setStatus(statusNumber: Int(selectedDate?.status ?? 0))
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         imageStatus?.removeFromSuperview()
     }
@@ -63,7 +68,6 @@ class SavedDateViewController: UIViewController {
         
         imageStatus.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.addSubview(imageStatus)
-        imageStatus.image = setStatus(statusNumber: Int(selectedDate?.status ?? 0))
         
         view.addSubview(textView)
         textView.translatesAutoresizingMaskIntoConstraints = false

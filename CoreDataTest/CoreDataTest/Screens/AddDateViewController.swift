@@ -139,9 +139,7 @@ class AddDateViewController: UIViewController {
             let alertScreen = UIAlertController(title: "Status não selecionado", message: "Selecione um status.", preferredStyle: .alert)
             let okayBtn = UIAlertAction(title: "OK", style: .cancel)
             alertScreen.addAction(okayBtn)
-            
             present(alertScreen, animated: true)
-            
             return
         }
         
