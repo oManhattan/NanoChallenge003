@@ -14,6 +14,7 @@ class SubjectViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
+    private weak var titleController: UILabel?
     
     let customCell = SubjectTableViewCell()
     
@@ -25,7 +26,7 @@ class SubjectViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont(name: "SFCompactRounded-Bold", size: 40)!]
         self.title = "E-Nêutron"
         
         fetchSubject()
@@ -37,7 +38,30 @@ class SubjectViewController: UIViewController {
         
         searchBar.placeholder = "Buscar nome assunto"
         searchBar.delegate = self
-//        setupHideKeyboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+//        let title: UILabel = .init()
+//        title.text = "E-Nêutron"
+//        title.font = UIFont(name: "SFCompactRounded-Bold", size: 40)
+//
+//        navigationController?.navigationBar.addSubview(title)
+//
+//        title.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            title.centerYAnchor.constraint(equalTo: (navigationController?.navigationBar.centerYAnchor)!),
+//            title.leftAnchor.constraint(equalTo: (navigationController?.navigationBar.leftAnchor)!, constant: 10)
+//        ])
+//
+//        self.titleController = title
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        self.titleController?.removeFromSuperview()
     }
     
     // MARK - Keyboard functions

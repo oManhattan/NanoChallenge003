@@ -26,6 +26,7 @@ class TopicsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fetchTopics()
         
         self.title = self.selectedSubject?.name ?? "N/A"
@@ -49,7 +50,6 @@ class TopicsViewController: UIViewController {
         super.viewWillDisappear(animated)
         update?()
     }
-    
     // Mark - Core Data functions
     
     private func fetchTopics() {
