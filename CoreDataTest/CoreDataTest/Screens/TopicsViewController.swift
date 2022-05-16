@@ -31,6 +31,7 @@ class TopicsViewController: UIViewController {
         
         self.title = self.selectedSubject?.name ?? "N/A"
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+        navigationController?.navigationBar.topItem?.backButtonTitle = " "
         
         progressBar.layer.cornerRadius = 3
         progressBar.setProgressWithConstraints(green: 0, yellow: 0, red: 0, withAnimation: false)

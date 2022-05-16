@@ -28,6 +28,7 @@ class DatesViewController: UIViewController {
         self.latestDateHasChanged = false
         
         self.title = self.selectedTopic?.name ?? "N/A"
+        navigationController?.navigationBar.topItem?.backButtonTitle = " "
         
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).numberOfLines = 2

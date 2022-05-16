@@ -28,6 +28,7 @@ class SubjectViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont(name: "SFCompactRounded-Bold", size: 40)!]
         self.title = "E-Nêutron"
+        navigationController?.navigationBar.topItem?.backButtonTitle = " "
         
         fetchSubject()
         

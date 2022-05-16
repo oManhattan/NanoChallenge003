@@ -48,6 +48,24 @@ class SavedDateViewController: UIViewController {
         imageStatus?.removeFromSuperview()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let imageStatus = UIImageView()
+     
+        imageStatus.translatesAutoresizingMaskIntoConstraints = false
+        navigationController?.navigationBar.addSubview(imageStatus)
+        
+        NSLayoutConstraint.activate([
+            imageStatus.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -const.margemDireita),
+            imageStatus.bottomAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: -const.margemBaixaImagemGrande),
+            imageStatus.heightAnchor.constraint(equalToConstant: 30),
+            imageStatus.widthAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        self.imageStatus = imageStatus
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,15 +73,11 @@ class SavedDateViewController: UIViewController {
         formatter.dateFormat = "dd/MM/yyyy"
         formatter.locale = Locale(identifier: "pt_BR")
         self.title = formatter.string(from: selectedDate?.date ?? Date.distantPast)
+        navigationController?.navigationBar.topItem?.backButtonTitle = " "
         
         let textView = UITextView()
-        let imageStatus = UIImageView()
         
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
-        
-        imageStatus.translatesAutoresizingMaskIntoConstraints = false
-        navigationController?.navigationBar.addSubview(imageStatus)
-        imageStatus.image = setStatus(statusNumber: Int(selectedDate?.status ?? 0))
         
         view.addSubview(textView)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -76,11 +90,6 @@ class SavedDateViewController: UIViewController {
         textView.delegate = self
         
         NSLayoutConstraint.activate([
-            imageStatus.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -const.margemDireita),
-            imageStatus.bottomAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: -const.margemBaixaImagemGrande),
-            imageStatus.heightAnchor.constraint(equalToConstant: 30),
-            imageStatus.widthAnchor.constraint(equalToConstant: 30),
-            
             textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             textView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             textView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
@@ -88,7 +97,6 @@ class SavedDateViewController: UIViewController {
         ])
         
         self.textView = textView
-        self.imageStatus = imageStatus
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)

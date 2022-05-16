@@ -140,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ["Trabalho da força gravitacional", "Energia potencial e energia cinética", "Forças conservativas e dissipativas", "Energia mecânica e dissipação de energia"],
         ["Reflexão e refração", "Óptica geométrica", "Formação de imagens", "Fenômenos ondulatórios", "Propagação"],
         ["Lei da Gravitação Universal", "Movimentos de corpos celestes", "Força peso", "Aceleração gravitacional", "Leis de Kepler", "A origem do universo e sua evolução"],
-        ["Máquinas térmicas", "Dilataçnao térmica", "Leis da Termodinâmica", "Comportamento de gases ideais", "Conceitos de calor e de temperatura", "Transferência de calor e equlíbrio térmico", "Aplicações e fenômenos térmicos de uso cotidiano", "Mudanças de estado físico e calor latente de transformação", "Compreensão de fenômenos climáticos relacionados ao ciclo da água"]
+        ["Máquinas térmicas", "Dilatação térmica", "Leis da Termodinâmica", "Comportamento de gases ideais", "Conceitos de calor e de temperatura", "Transferência de calor e equlíbrio térmico", "Aplicações e fenômenos térmicos de uso cotidiano", "Mudanças de estado físico e calor latente de transformação", "Compreensão de fenômenos climáticos relacionados ao ciclo da água"]
         ]
         
         let subjectList = fetchSubjects(in: context)
