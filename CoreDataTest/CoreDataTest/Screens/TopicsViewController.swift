@@ -22,15 +22,22 @@ class TopicsViewController: UIViewController {
     
     var update: (() -> Void)?
     
+    var sortingOptions: [UIAction]?
+    var menu: UIMenu?
+    
     // MARK - Override functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).numberOfLines = 0
+        
         fetchTopics()
         
+        setupMenuButton()
+        
         self.title = self.selectedSubject?.name ?? "N/A"
-        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
         navigationController?.navigationBar.topItem?.backButtonTitle = " "
         
         progressBar.layer.cornerRadius = 3
@@ -45,12 +52,65 @@ class TopicsViewController: UIViewController {
         table.dataSource = self
     }
     
+    private func setupMenuButton() {
+        
+        let standardSort = UIAction(title: "Padrão") { (action) in
+            UserDefaults.standard.set(0, forKey: "sortingOptionTopic")
+            self.setSelectedSorting()
+            self.fetchTopics()
+        }
+
+        let colorSort = UIAction(title: "Não estudado") { (action) in
+            UserDefaults.standard.set(2, forKey: "sortingOptionTopic")
+            self.setSelectedSorting()
+            self.fetchTopics()
+        }
+        
+        let estudado = UIAction(title: "Estudados") { (action) in
+            UserDefaults.standard.set(3, forKey: "sortingOptionTopic")
+            self.setSelectedSorting()
+            self.fetchTopics()
+        }
+
+        let alphabet = UIAction(title: "A - Z") { (action) in
+            UserDefaults.standard.set(1, forKey: "sortingOptionTopic")
+            self.setSelectedSorting()
+            self.fetchTopics()
+        }
+        
+        self.sortingOptions = [standardSort, alphabet, colorSort, estudado]
+        setSelectedSorting()
+        
+        let menu = UIMenu(image: .init(), options: .displayInline, children: sortingOptions ?? [])
+        self.menu = menu
+        
+        navigationItem.rightBarButtonItem = .init(image: .init(systemName: "line.3.horizontal.decrease.circle"), style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem?.menu = menu
+    }
+    
+    public func setSelectedSorting() {
+
+        for i in 0..<sortingOptions!.count {
+            if i == UserDefaults.standard.integer(forKey: "sortingOptionTopic") {
+                self.sortingOptions?[i].state = .on
+                continue
+            }
+            
+            self.sortingOptions?[i].state = .off
+        }
+        
+        self.menu = UIMenu(image: .init(), options: .displayInline, children: self.sortingOptions ?? [])
+        
+        navigationItem.rightBarButtonItem?.menu = self.menu
+    }
+    
     // Mark - Keyboard functions
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         update?()
     }
+    
     // Mark - Core Data functions
     
     private func fetchTopics() {
@@ -58,9 +118,25 @@ class TopicsViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Topic.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latestSavedStatus", ascending: true), NSSortDescriptor(key: "latestSavedDate", ascending: true)]
         fetchRequest.predicate = NSPredicate(format: "subject.name == %@", argumentArray: [self.selectedSubject?.name ?? "N/A"])
         
+        switch UserDefaults.standard.integer(forKey: "sortingOptionTopic") {
+        case 0:
+            fetchRequest.sortDescriptors = []
+            break
+        case 1:
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            break
+        case 2:
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latestSavedStatus", ascending: true), NSSortDescriptor(key: "latestSavedDate", ascending: true)]
+            break
+        case 3:
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latestSavedStatus", ascending: false), NSSortDescriptor(key: "latestSavedDate", ascending: true)]
+            break
+        default:
+            fetchRequest.sortDescriptors = []
+        }
+
         var list: [Topic] = []
         
         do {
@@ -158,6 +234,7 @@ extension TopicsViewController: UITableViewDelegate {
             }
         }
         navigationController?.pushViewController(datesView, animated: true)
+        self.searchBar.text = ""
         table.deselectRow(at: indexPath, animated: true)
     }
     

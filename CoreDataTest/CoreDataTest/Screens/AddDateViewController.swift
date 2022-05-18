@@ -147,7 +147,7 @@ class AddDateViewController: UIViewController {
         
         notes = textView?.text ?? ""
         notes = (notes == "Anotações") ? "" : notes
-
+        
         createNewDateDelegate.didTapSave(date: selectedDate, status: selectedStatus, notes: notes)
 
         dismiss(animated: true)

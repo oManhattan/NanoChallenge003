@@ -68,6 +68,7 @@ extension DatesViewController: UITableViewDelegate {
         
         navigationController?.pushViewController(savedNotes, animated: true)
         
+        self.searchBar.text = ""
         table.deselectRow(at: indexPath, animated: true)
     }
     
@@ -139,7 +140,7 @@ extension DatesViewController: UITableViewDataSource {
         }
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, dd/MM/yyyy"
+        formatter.dateFormat = "EEEE, dd/MM/yyyy, HH:mm"
         formatter.locale = Locale(identifier: "pt_BR")
         
         cell.setDate(date: formatter.string(from: date))

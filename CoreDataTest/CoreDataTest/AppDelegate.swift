@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if isNewUser() {
             let context = persistentContainer.newBackgroundContext()
+            UserDefaults.standard.set(0, forKey: "sortingOption")
+            UserDefaults.standard.set(0, forKey: "sortingOptionTopic")
             populateSubject(in: context)
             populateTopics(in: context)
             setIsNotNewUser()

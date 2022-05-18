@@ -72,7 +72,7 @@ class SavedDateViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         formatter.locale = Locale(identifier: "pt_BR")
-        self.title = formatter.string(from: selectedDate?.date ?? Date.distantPast)
+        self.title = "\(self.selectedDate?.topic?.name ?? "N/A") - \(formatter.string(from: selectedDate?.date ?? Date.distantPast))"
         navigationController?.navigationBar.topItem?.backButtonTitle = " "
         
         let textView = UITextView()

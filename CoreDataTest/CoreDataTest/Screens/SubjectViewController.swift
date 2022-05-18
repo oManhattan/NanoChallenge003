@@ -17,6 +17,8 @@ class SubjectViewController: UIViewController {
     private weak var titleController: UILabel?
     
     let customCell = SubjectTableViewCell()
+    var menu: UIMenu?
+    var sortingOptions: [UIAction]?
     
     private var subjectList: [Subject] = []
     
@@ -25,10 +27,14 @@ class SubjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).numberOfLines = 2
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont(name: "SFCompactRounded-Bold", size: 40)!]
         self.title = "E-Nêutron"
         navigationController?.navigationBar.topItem?.backButtonTitle = " "
+        setupMenuButton()
         
         fetchSubject()
         
@@ -41,28 +47,57 @@ class SubjectViewController: UIViewController {
         searchBar.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func setupMenuButton() {
+        
+        let standardSort = UIAction(title: "Padrão") { (action) in
+            UserDefaults.standard.set(0, forKey: "sortingOption")
+            self.setSelectedSorting()
+            self.fetchSubject()
+        }
 
-//        let title: UILabel = .init()
-//        title.text = "E-Nêutron"
-//        title.font = UIFont(name: "SFCompactRounded-Bold", size: 40)
-//
-//        navigationController?.navigationBar.addSubview(title)
-//
-//        title.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            title.centerYAnchor.constraint(equalTo: (navigationController?.navigationBar.centerYAnchor)!),
-//            title.leftAnchor.constraint(equalTo: (navigationController?.navigationBar.leftAnchor)!, constant: 10)
-//        ])
-//
-//        self.titleController = title
+        let colorSort = UIAction(title: "Não estudados") { (action) in
+            UserDefaults.standard.set(2, forKey: "sortingOption")
+            self.setSelectedSorting()
+            self.fetchSubject()
+        }
+        
+        let estudados = UIAction(title: "Estudados") { (action) in
+            UserDefaults.standard.set(3, forKey: "sortingOption")
+            self.setSelectedSorting()
+            self.fetchSubject()
+        }
+
+        let alphabet = UIAction(title: "A - Z") { (action) in
+            UserDefaults.standard.set(1, forKey: "sortingOption")
+            self.setSelectedSorting()
+            self.fetchSubject()
+        }
+        
+        self.sortingOptions = [standardSort, alphabet, colorSort, estudados]
+        setSelectedSorting()
+        
+        let menu = UIMenu(image: .init(), options: .displayInline, children: sortingOptions ?? [])
+        self.menu = menu
+        
+        navigationItem.rightBarButtonItem = .init(image: .init(systemName: "line.3.horizontal.decrease.circle"), style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem?.menu = menu
     }
+    
+    public func setSelectedSorting() {
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-//        self.titleController?.removeFromSuperview()
+        for i in 0..<sortingOptions!.count {
+            if i == UserDefaults.standard.integer(forKey: "sortingOption") {
+                self.sortingOptions?[i].state = .on
+                continue
+            }
+            
+            self.sortingOptions?[i].state = .off
+        }
+        
+        
+        self.menu = UIMenu(image: .init(), options: .displayInline, children: self.sortingOptions ?? [])
+        
+        navigationItem.rightBarButtonItem?.menu = self.menu
     }
     
     // MARK - Keyboard functions
@@ -84,7 +119,24 @@ class SubjectViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         let fetch = Subject.fetchRequest()
-        fetch.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "yellowProgress", ascending: true), NSSortDescriptor(key: "redProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
+        
+        switch UserDefaults.standard.integer(forKey: "sortingOption") {
+        case 0:
+            
+            fetch.sortDescriptors = []
+            break
+        case 1:
+            fetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            break
+        case 2:
+            fetch.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: true), NSSortDescriptor(key: "yellowProgress", ascending: true), NSSortDescriptor(key: "redProgress", ascending: true), NSSortDescriptor(key: "latestDate", ascending: true)]
+            break
+        case 3:
+            fetch.sortDescriptors = [NSSortDescriptor(key: "greenProgress", ascending: false), NSSortDescriptor(key: "yellowProgress", ascending: false), NSSortDescriptor(key: "redProgress", ascending: false), NSSortDescriptor(key: "latestDate", ascending: true)]
+            break
+        default:
+            fetch.sortDescriptors = []
+        }
         
         do {
             lista = try context.fetch(fetch)
@@ -131,7 +183,7 @@ extension SubjectViewController: UITableViewDelegate {
         
         let topicsView = storyboard?.instantiateViewController(withIdentifier: "TopicsViewController") as! TopicsViewController
         topicsView.selectedSubject = self.subjectList[indexPath.row]
-        
+        self.searchBar.text = ""
         topicsView.update = {
             self.fetchSubject()
             DispatchQueue.main.async {
